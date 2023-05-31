@@ -10,23 +10,33 @@ function Register(){
 
     function submitR (e){
         e.preventDefault();
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        if(validarFormulario()){
+                const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-        if(email == "samgope100@gmail.com"){
-            var rol = "admin";
+            if(email == "samgope100@gmail.com"){
+                var rol = "admin";
+            }
+            else{
+                var rol = "user";
+            }
+
+            console.log(email, password, rol);
+            registerEmailPassword(email, password, rol);
         }
         else{
-            var rol = "user";
+            console.log("Error");
         }
-
-        console.log(email, password, rol);
-        registerEmailPassword(email, password, rol);
     }
 
     function submitR2 (e){
         e.preventDefault();
-        registerWithGoogle();
+        if(validarFormulario()){
+            registerWithGoogle();
+        }
+        else{
+            console.log("Error");
+        }
     }
 
     async function registerEmailPassword(email, password, rol){
@@ -54,7 +64,10 @@ function Register(){
         }
         const docuREef = doc(db, "users", infoUser.uid);
         setDoc(docuREef, {correo: email, rol: rol});
-    }    
+    }
+
+    function validarFormulario(){
+    }
 
     return(
         <div id="div_register">

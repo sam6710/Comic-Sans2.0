@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore } from "firebase/firestore"
+// import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA3gqM805AGplnqiI1BVS4HHUI-QtQdaN0",
+  apiKey: "AIzaSyA3gqM805AGplnqiI1BVS4HHUI-QtQdaN0",
   authDomain: "comic-sans-4e442.firebaseapp.com",
   projectId: "comic-sans-4e442",
   storageBucket: "comic-sans-4e442.appspot.com",
@@ -14,3 +14,4 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 
 export default firebaseApp;
+// export const db = getFirestore(firebaseApp);

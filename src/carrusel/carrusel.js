@@ -4,9 +4,9 @@ function Carrusel() {
   const TIEMPO_INTERVALO_MILESIMAS_SEG = 4000;
 
   const IMAGENES = [
-    "../../public/imagenes/marvel.jpg",
-    "../../assets/imagenes/3.jpg",
-    "../../assets/imagenes/4.jpg",
+    "./imagenes/norma.jpg",
+    "./imagenes/marvel.jpg",
+    "./imagenes/dc.jpg",
   ];
 
   let posicionActual = 0;
@@ -30,18 +30,13 @@ function Carrusel() {
   };
 
   useEffect(() => {
-    montarInicio();
     playIntervalo();
   }, []);
-
-  const montarInicio = () => {
-    // Código para montar el inicio
-  };
 
   return (
     <section id="carrusel">
       <div id="img_carrusel">
-        <img src="../../public/imagenes/norma.jpg" alt="imagen_carrusel" id="imagen_carrusel" />
+        <img src="./imagenes/norma.jpg" alt="imagen_carrusel" id="imagen_carrusel" />
       </div>
     </section>
   );

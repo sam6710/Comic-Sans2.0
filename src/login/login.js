@@ -10,17 +10,27 @@ function Login(){
 
     function submitL(e){
         e.preventDefault();
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        if(validarFormulario()){
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-        signInWithEmailAndPassword(auth, email, password);
-        setLogeado(true);
-        console.log(logeado);
+            signInWithEmailAndPassword(auth, email, password);
+            setLogeado(true);
+            console.log(logeado);
+        }
+        else{
+            console.log("Error");
+        }
     }
 
     function submitL2 (e){
         e.preventDefault();
-        registerWithGoogle();
+        if(validarFormulario()){
+            registerWithGoogle();
+        }
+        else{
+            console.log("Error");
+        }
     }
 
     async function registerWithGoogle(rol){
@@ -32,6 +42,19 @@ function Login(){
             setLogeado(false);
         });
     }  
+
+    function validarFormulario(){
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        if(email == "" || password == ""){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
 
     return(
         <div className="vh-100 d-flex justify-content-center align-items-center">
