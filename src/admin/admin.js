@@ -65,7 +65,7 @@ function Admin(){
                     <option value="novela">Novela ligera</option>
                 </select>
                 <label for="titulo">Título</label>
-                <input type="text" id="titulo" placeholder="Título"/>
+                <input type="text" id="titulo" placeholder="Título" required/>
                 <label for="editorial">Editorial</label>
                 <select id="editorial">
                     <option value="norma">Norma editorial</option>
@@ -73,7 +73,7 @@ function Admin(){
                     <option value="dc">DC</option>
                     <option value="ivrea">Ivrea</option>
                     <option value="panini">Panini</option>
-                    <option value="milky">Milky way Ediciones</option>
+                    <option value="milky">Milky Way Ediciones</option>
                     <option value="arechi">Arechi</option>
                     <option value="planeta">Planeta</option>
                 </select>
@@ -82,7 +82,7 @@ function Admin(){
                 <label for="autor">Autor</label>
                 <input type="text" id="autor" placeholder="Autor"/>
                 <label for="genero">Género</label>
-                <select id="genero">
+                <select id="genero" required>
                     <option value="fantasia">Fantasía</option>
                     <option value="terror">Terror</option>
                     <option value="ciencia_ficcion">Ciencia ficción</option>
@@ -110,7 +110,7 @@ function Admin(){
                     <option value="adulto">Adulto</option>
                 </select>
                 <label for="precio">Precio</label>
-                <input type="text" id="precio" placeholder="Precio"/>
+                <input type="text" id="precio" placeholder="Precio" required/>
                 <label for="imagen">Imagen</label>
                 <input type="file" id="imagen" placeholder="Imagen"/>
                 <button className="btn btn-dark" type="submit">Añadir</button>

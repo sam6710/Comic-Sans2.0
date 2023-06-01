@@ -42,7 +42,7 @@ function Cabecera({user, handleLogout}) {
                                 <li><a className="dropdown-item" href="/norma">Norma Editorial</a></li>
                                 <li><a className="dropdown-item" href="/planeta">Planeta</a></li>
                                 <li><a className="dropdown-item" href="/panini">Panini</a></li>
-                                <li><a className="dropdown-item" href="/milky">Milky way Ediciones</a></li>
+                                <li><a className="dropdown-item" href="/milky">Milky Way Ediciones</a></li>
                                 <li><a className="dropdown-item" href="/arechi">Arechi</a></li>
                                 <li><a className="dropdown-item" href="/marvel">Marvel</a></li>
                                 <li><a className="dropdown-item" href="/dc">DC</a></li>

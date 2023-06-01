@@ -11,7 +11,7 @@ function Register(){
     function submitR (e){
         e.preventDefault();
         if(validarFormulario()){
-                const email = document.getElementById('email').value;
+            const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
             if(email == "samgope100@gmail.com"){

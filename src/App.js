@@ -1,11 +1,12 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import Landing from "./initial-page/initial-page";
 import Cabecera from "./cabecera/cabecera";
 import Pie from "./pie/pie";
 import Login from "./login/login";
 import Register from "./register/register";
 import Admin from "./admin/admin";
+import Galeria from "./galeria/galeria";
 import firebaseApp from './firebase_config.js';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState } from 'react';
@@ -55,7 +56,12 @@ function App() {
     ).catch((error) => {
         console.log(error);
     });
-};
+  };
+
+  const isAdmin = user && user.rol == "admin";
+  console.log("isAdmin", isAdmin);
+  console.log("user", user);
+  console.log("user.rol", user && user.rol);
 
   return (
     <div className="App">
@@ -65,7 +71,12 @@ function App() {
           <Route path="/" element={<Landing />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
-          <Route path="/admin" element={<Admin />}></Route>
+          {isAdmin ? (
+            <Route path="/admin" element={<Admin />} />
+          ) : (
+            <Route path="/admin" element={<Navigate to="/" />} />
+          )}
+          <Route path="/galeria" element={<Galeria />}></Route>
           <Route path="*" element={<h1>404</h1>}></Route>
         </Routes>
         <Pie/>

@@ -25,7 +25,7 @@ function Login(){
 
     function submitL2 (e){
         e.preventDefault();
-        if(validarFormulario()){
+        if(validarFormulario2()){
             registerWithGoogle();
         }
         else{
@@ -33,7 +33,7 @@ function Login(){
         }
     }
 
-    async function registerWithGoogle(rol){
+    async function registerWithGoogle(){
         signInWithPopup(auth, new GoogleAuthProvider())
         .then((result) => {
             setLogeado(true);
@@ -47,12 +47,16 @@ function Login(){
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        if(email == "" || password == ""){
+        if(email === "" || password === ""){
             return false;
         }
         else{
             return true;
         }
+    }
+
+    function validarFormulario2(){
+        return true;
     }
 
 
