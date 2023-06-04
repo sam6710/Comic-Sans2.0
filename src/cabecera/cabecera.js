@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./cabecera.css";
 
 function Cabecera({user, handleLogout}) {
@@ -13,39 +14,39 @@ function Cabecera({user, handleLogout}) {
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Inicio</a>
+                            <a className="nav-link active" aria-current="page" href="/">Inicio</a>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tipos</a>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="/manga">Manga</a></li>
-                                <li><a className="dropdown-item" href="/comic">Comic</a></li>
-                                <li><a className="dropdown-item" href="/libros">Libros</a></li>
+                                <li><a className="dropdown-item" href="/galeria?tipo=manga">Manga</a></li>
+                                <li><a className="dropdown-item" href="/galeria?tipo=comic">Comic</a></li>
+                                <li><a className="dropdown-item" href="/galeria">Libros</a></li>
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/novelas">Novelas Ligeras</a>
+                            <a className="nav-link" href="/galeria?tipo=novela">Novelas Ligeras</a>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Géneros</a>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Acción</a></li>
-                                <li><a className="dropdown-item" href="#">Romance</a></li>
-                                <li><a className="dropdown-item" href="#">Fantasía</a></li>
-                                <li><a className="dropdown-item" href="#">Terror</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=accion">Acción</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=romance">Romance</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=fantasia">Fantasía</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=terror">Terror</a></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Editoriales/Marca</a>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="/ivrea">Ivrea</a></li>
-                                <li><a className="dropdown-item" href="/norma">Norma Editorial</a></li>
-                                <li><a className="dropdown-item" href="/planeta">Planeta</a></li>
-                                <li><a className="dropdown-item" href="/panini">Panini</a></li>
-                                <li><a className="dropdown-item" href="/milky">Milky Way Ediciones</a></li>
-                                <li><a className="dropdown-item" href="/arechi">Arechi</a></li>
-                                <li><a className="dropdown-item" href="/marvel">Marvel</a></li>
-                                <li><a className="dropdown-item" href="/dc">DC</a></li>
+                                <li><a className="dropdown-item" href="/galeria?editorial=ivrea">Ivrea</a></li>
+                                <li><a className="dropdown-item" href="/galeria?editorial=norma">Norma Editorial</a></li>
+                                <li><a className="dropdown-item" href="/galeria?editorial=planeta">Planeta</a></li>
+                                <li><a className="dropdown-item" href="/galeria?editorial=panini">Panini</a></li>
+                                <li><a className="dropdown-item" href="/galeria?editorial=milky">Milky Way Ediciones</a></li>
+                                <li><a className="dropdown-item" href="/galeria?editorial=arechi">Arechi</a></li>
+                                <li><a className="dropdown-item" href="/galeria?editorial=marvel">Marvel</a></li>
+                                <li><a className="dropdown-item" href="/galeria?editorial=dc">DC</a></li>
                             </ul>
                         </li>
                         <li className="nav-item">
@@ -57,7 +58,7 @@ function Cabecera({user, handleLogout}) {
                         </li>
                         <li className="nav-item">
                             {user && user.rol === "admin" ? (
-                                <a className="nav-link active" aria-current="page" href="/admin">Añadir Artículo</a>
+                                <Link className="nav-link active" aria-current="page" to="/admin">Administración</Link>
                             ) : (
                                 <a className="nav-link active" aria-current="page" href="/#"></a>
                             )}

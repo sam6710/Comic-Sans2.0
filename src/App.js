@@ -9,7 +9,7 @@ import Admin from "./admin/admin";
 import Galeria from "./galeria/galeria";
 import firebaseApp from './firebase_config.js';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { signOut } from '@firebase/auth';
 
@@ -34,7 +34,7 @@ function App() {
         rol: rol
       };
       setUser(userData);
-      console.log("aaaa", userData);
+      // console.log("aaaa", userData);
     });
   }
 
@@ -58,10 +58,12 @@ function App() {
     });
   };
 
+
+
   const isAdmin = user && user.rol == "admin";
-  console.log("isAdmin", isAdmin);
-  console.log("user", user);
-  console.log("user.rol", user && user.rol);
+  // console.log("isAdmin", isAdmin);
+  // console.log("user", user);
+  // console.log("user.rol", user && user.rol);
 
   return (
     <div className="App">

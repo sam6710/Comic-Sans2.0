@@ -2,7 +2,7 @@ import React from 'react';
 
 function Articulo({ articulo }) {
 
-    console.log(articulo);
+    // console.log(articulo);
 
     return (
         <div>
