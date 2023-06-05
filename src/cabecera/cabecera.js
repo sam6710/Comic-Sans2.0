@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./cabecera.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function Cabecera({user, handleLogout}) {
 
@@ -63,6 +65,7 @@ function Cabecera({user, handleLogout}) {
                                 <a className="nav-link active" aria-current="page" href="/#"></a>
                             )}
                         </li>
+                        <a href="/carrito"><FontAwesomeIcon id="carrito" icon={faShoppingCart} /></a>
                     </ul>
                 </div>
             </div>

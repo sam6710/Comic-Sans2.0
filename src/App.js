@@ -7,6 +7,8 @@ import Login from "./login/login";
 import Register from "./register/register";
 import Admin from "./admin/admin";
 import Galeria from "./galeria/galeria";
+import Detalle from './detalle/detalle';
+import Carrito from './carrito/carrito';
 import firebaseApp from './firebase_config.js';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from 'react';
@@ -17,7 +19,12 @@ const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 
 function App() {
+  
   const [user, setUser] = useState(null);
+
+  const [carrito, setCarrito] = useState([]);
+
+  console.log("carrito3", carrito);
 
   async function getRol(uid){
     const docRef = doc(db, "users", uid);
@@ -58,7 +65,13 @@ function App() {
     });
   };
 
-
+  const agregarAlCarrito = (articulo) => {
+    console.log("articulo", articulo);
+    console.log("carrito1", carrito);
+    // setCarrito([...carrito, articulo]);
+    setCarrito(prevCarrito => [...prevCarrito, articulo]);
+    console.log("carrito2", carrito);
+  };
 
   const isAdmin = user && user.rol == "admin";
   // console.log("isAdmin", isAdmin);
@@ -79,6 +92,8 @@ function App() {
             <Route path="/admin" element={<Navigate to="/" />} />
           )}
           <Route path="/galeria" element={<Galeria />}></Route>
+          <Route path="/detalle" element={<Detalle agregarAlCarrito={agregarAlCarrito}/>}/>
+          <Route path="/carrito" element={<Carrito carrito={carrito} />} />
           <Route path="*" element={<h1>404</h1>}></Route>
         </Routes>
         <Pie/>

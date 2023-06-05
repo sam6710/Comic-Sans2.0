@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Articulo({ articulo }) {
 
@@ -6,14 +7,14 @@ function Articulo({ articulo }) {
 
     return (
         <div>
-            <h2>{articulo.titulo}</h2>
-            <p>{articulo.editorial}</p>
-            <p>{articulo.genero}</p>
-            <p>{articulo.genero2}</p>
-            <p>{articulo.precio}</p>
-            <p>{articulo.año}</p>
-            <p>{articulo.autor}</p>
-            <img src={articulo.imagen} alt="Imagen del artículo" />
+            <Link to={`/detalle?id=${articulo.id}`}>
+                <h2>{articulo.titulo}</h2>
+                <p>{articulo.genero}</p>
+                <p>{articulo.precio}</p>
+                <p>{articulo.autor}</p>
+                <img src={articulo.imagen} alt="Imagen del artículo" />
+                {/* <input id='product_id' type='hidden' value={ articulo.id }/> */}
+            </Link>
         </div>
     );
 }

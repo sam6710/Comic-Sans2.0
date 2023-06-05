@@ -39,6 +39,7 @@ function Admin(){
         const genero2 = document.getElementById('genero2').value;
         const precio = document.getElementById('precio').value;
         const fechaActual = new Date();
+        // const id = "S" + titulo + "A" + fechaActual.getTime() + "M";
 
         const producto = {
             tipo: tipo,
@@ -50,11 +51,22 @@ function Admin(){
             genero2: genero2,
             precio: precio,
             imagen: url,
-            fecha: fechaActual
+            fecha: fechaActual,
+            // id: id
         }
-        console.log(producto);
+
         const docuREef = doc(db, "articulos", titulo);
         setDoc(docuREef, producto);
+
+        document.getElementById('tipo').value = "";
+        document.getElementById('titulo').value = "";
+        document.getElementById('editorial').value = "";
+        document.getElementById('año').value = "";
+        document.getElementById('autor').value = "";
+        document.getElementById('genero').value = "";
+        document.getElementById('genero2').value = "";
+        document.getElementById('precio').value = "";
+        document.getElementById('imagen').value = "";
     }
 
     useEffect(() => {
@@ -82,10 +94,17 @@ function Admin(){
         if (selectedUser) {
             // Actualizar el usuario seleccionado en la base de datos para convertirlo en administrador
             const userRef = doc(db, 'users', selectedUser);
-            setDoc(userRef, { isAdmin: true }, { merge: true });
+            setDoc(userRef, { rol: 'admin' }, { merge: true });
         }
     };
-    console.log("users", users);
+
+    const convertTouser = () => {
+        if (selectedUser) {
+            // Actualizar el usuario seleccionado en la base de datos para convertirlo en administrador
+            const userRef = doc(db, 'users', selectedUser);
+            setDoc(userRef, { rol: 'user' }, { merge: true });
+        }
+    };
 
     return(
         <div>
@@ -165,6 +184,21 @@ function Admin(){
                             ))}
                     </select>
                     <button className="btn btn-dark" type="button" onClick={convertToAdmin}>Convertir en administrador</button>
+                </form>
+            </div>
+            <div id="quitarAdmin">
+                <form>
+                    <h2>Quitar Admin</h2>
+                    <label htmlFor="selectUser">Seleccionar usuario:</label>
+                    <select id="selectUser" value={selectedUser} onChange={handleUserSelection}>
+                        <option value="">Seleccione un usuario</option>
+                        {users
+                            .filter((user) => user.rol === 'admin')
+                            .map((user) => (
+                            <option key={user.id} value={user.id}>{user.correo}</option>
+                            ))}
+                    </select>
+                    <button className="btn btn-dark" type="button" onClick={convertTouser}>Convertir en usuario</button>
                 </form>
             </div>
         </div>
