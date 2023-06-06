@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import './carrusel.css';
 
 function Carrusel() {
   const TIEMPO_INTERVALO_MILESIMAS_SEG = 4000;
@@ -9,34 +10,52 @@ function Carrusel() {
     "./imagenes/dc.jpg",
   ];
 
-  let posicionActual = 0;
+  // let posicionActual = 0;
+  // let intervaloRef = useRef(null);
+  const [posicionActual, setPosicionActual] = useState(0);
 
+  // const pasarFoto = () => {
+  //   if (posicionActual >= IMAGENES.length - 1) {
+  //     posicionActual = 0;
+  //   } else {
+  //     posicionActual++;
+  //   }
+  //   renderizarImagen();
+  // };
   const pasarFoto = () => {
-    if (posicionActual >= IMAGENES.length - 1) {
-      posicionActual = 0;
-    } else {
-      posicionActual++;
-    }
-    renderizarImagen();
+    setPosicionActual((prevPosicion) => (prevPosicion + 1) % IMAGENES.length);
   };
 
-  const renderizarImagen = () => {
-    const img_carrusel = document.getElementById("imagen_carrusel");
-    img_carrusel.src = IMAGENES[posicionActual];
-  };
-
-  const playIntervalo = () => {
-    setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
-  };
+  // const renderizarImagen = () => {
+  //   const img_carrusel = document.getElementById("imagen_carrusel");
+  //   img_carrusel.src = IMAGENES[posicionActual];
+  // };
 
   useEffect(() => {
-    playIntervalo();
+    const intervalo = setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
+
+    return () => {
+      clearInterval(intervalo);
+    };
   }, []);
 
+  // const playIntervalo = () => {
+  //   setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
+  // };
+
+  // useEffect(() => {
+  //   playIntervalo();
+  // }, []);
+
   return (
+    // <section id="carrusel">
+    //   <div id="img_carrusel">
+    //     <img src="./imagenes/norma.jpg" alt="imagen_carrusel" id="imagen_carrusel" />
+    //   </div>
+    // </section>
     <section id="carrusel">
       <div id="img_carrusel">
-        <img src="./imagenes/norma.jpg" alt="imagen_carrusel" id="imagen_carrusel" />
+        <img src={IMAGENES[posicionActual]} alt="imagen_carrusel" id="imagen_carrusel" />
       </div>
     </section>
   );

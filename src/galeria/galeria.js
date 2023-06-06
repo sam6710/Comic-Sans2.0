@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import firebaseApp from '../firebase_config';
 import { getFirestore, getDocs, collection, query, where } from "firebase/firestore"
 import Articulo from '../articulo/articulo';
+import './galeria.css';
 
 function Galeria() {
 
@@ -52,15 +53,12 @@ function Galeria() {
         }, []);
 
     return (
-        <div>
+        <div id='galeria'>
+            <ul>
             {articles.map((article) => (
-                // <section key={article.id}>
-                //     <h2>{article.titulo}</h2>
-                //     <p>{article.content}</p>
-                // </section>
-                <Articulo articulo = {article}/>
+                <li><Articulo articulo = {article}/></li>
             ))}
-            
+            </ul>
         </div>
     );
 };

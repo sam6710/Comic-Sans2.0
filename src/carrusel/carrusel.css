@@ -1,0 +1,10 @@
+#carrusel{
+    margin-top: 1rem;
+    padding: 0.4rem;
+}
+img{
+    width: 80%;
+    height: 14rem;
+    object-fit: cover;
+    object-position: center;
+}

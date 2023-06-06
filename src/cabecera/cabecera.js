@@ -23,11 +23,9 @@ function Cabecera({user, handleLogout}) {
                             <ul className="dropdown-menu">
                                 <li><a className="dropdown-item" href="/galeria?tipo=manga">Manga</a></li>
                                 <li><a className="dropdown-item" href="/galeria?tipo=comic">Comic</a></li>
+                                <li><a className="dropdown-item" href="/galeria?tipo=novela">Novelas Ligeras</a></li>
                                 <li><a className="dropdown-item" href="/galeria">Libros</a></li>
                             </ul>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/galeria?tipo=novela">Novelas Ligeras</a>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Géneros</a>

@@ -24,7 +24,9 @@ function App() {
 
   const [carrito, setCarrito] = useState([]);
 
-  console.log("carrito3", carrito);
+  // useEffect(() => {
+  //   console.log("carrito3", carrito);
+  // }, [carrito])
 
   async function getRol(uid){
     const docRef = doc(db, "users", uid);
@@ -65,13 +67,12 @@ function App() {
     });
   };
 
-  const agregarAlCarrito = (articulo) => {
-    console.log("articulo", articulo);
-    console.log("carrito1", carrito);
-    // setCarrito([...carrito, articulo]);
-    setCarrito(prevCarrito => [...prevCarrito, articulo]);
-    console.log("carrito2", carrito);
-  };
+  // const agregarAlCarrito = (articulo) => {
+  //   console.log("articulo", articulo);
+  //   // setCarrito([...carrito, articulo]);
+  //   setCarrito(prevCarrito => [...prevCarrito, articulo]);
+  //   console.log("carrito2", carrito);
+  // };
 
   const isAdmin = user && user.rol == "admin";
   // console.log("isAdmin", isAdmin);
@@ -92,7 +93,7 @@ function App() {
             <Route path="/admin" element={<Navigate to="/" />} />
           )}
           <Route path="/galeria" element={<Galeria />}></Route>
-          <Route path="/detalle" element={<Detalle agregarAlCarrito={agregarAlCarrito}/>}/>
+          <Route path="/detalle" element={<Detalle carrito={carrito} user={user}/>}/>
           <Route path="/carrito" element={<Carrito carrito={carrito} />} />
           <Route path="*" element={<h1>404</h1>}></Route>
         </Routes>

@@ -1,0 +1,21 @@
+#detalle{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    width: 90%;
+    margin-left: 5%;
+}
+#imagen{
+    grid-area: 1 / 1 / 2 / 2;
+}
+#info{
+    grid-area: 1 / 2 / 2 / 4;
+}
+#acciones{
+    grid-area: 1 / 4 / 2 / 5;
+}
+#imagen img{
+    height: 100%;
+}

@@ -1,4 +1,13 @@
 #cerrarS{
     border: none;
     background-color: transparent;
-};
+}
+ul{
+    width: 100%;
+}
+li{
+    width: 100%;
+}
+.dropdown-item:hover{
+    background-color: #f5f5f5;
+}
