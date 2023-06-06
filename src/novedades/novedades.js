@@ -20,7 +20,6 @@ function Novedades(){
                 return { id: doc.id, ...doc.data() };
               });
             setNovedades(novedadesData);
-            console.log("Awakate", novedadesData);
           } catch (error) {
             console.error('Error al obtener las novedades:', error);
           }

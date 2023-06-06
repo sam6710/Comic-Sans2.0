@@ -7,28 +7,16 @@ import './detalle.css';
 
 Modal.setAppElement('#root');
 
-function Detalle({ carrito, user }) {
+function Detalle({ user, agregarAlCarrito }) {
 
     const url = new URL(window.location.href);
     const id = url.searchParams.get('id');
 
     const [articulo, setArticulo] = useState(null);
-    const [detalleCarrito, setDetalleCarrito] = useState(carrito);
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [carrito, setCarrito] = useState([]);
 
     const navigate  = useNavigate ();
-
-  const agregarAlCarrito = (articulo) => {
-    setDetalleCarrito((prevCarrito) => [...prevCarrito, articulo]);
-    // console.log("detallecarrito", detallecarrito);
-    // console.log("carrito", carrito);
-    // console.log("articulo", articulo);
-  };
-
-  const agregarArticuloAlCarrito = () => {
-    agregarAlCarrito(articulo);
-    // console.log("Articulo", articulo);
-  };
 
     useEffect(() => {
       const fetchArticulo = async () => {
@@ -51,17 +39,6 @@ function Detalle({ carrito, user }) {
       console.log("usuario", user);
       fetchArticulo();
     }, []);
-
-    useEffect(() => {
-      console.log('detalleCarrito:', detalleCarrito);
-      console.log('carrito:', carrito);
-    }, [detalleCarrito, carrito]);
-
-    // const handleAgregarAlCarrito = () => {
-    //   if (articulo) {
-    //     agregarAlCarrito(articulo);
-    //   }
-    // };
 
     const borrarArticulo = async () => {
       openModal();
@@ -86,6 +63,10 @@ function Detalle({ carrito, user }) {
       }
     };
 
+    const agregarAlCarritoo = () => {
+      agregarAlCarrito(articulo);
+    };
+
     return (
         <div id='detalle'>
           <div id='imagen'>
@@ -101,8 +82,7 @@ function Detalle({ carrito, user }) {
               <p>{articulo && articulo.autor}</p>
           </div>
           <div id='acciones'>
-              <button id='agregar' onClick={agregarArticuloAlCarrito}>Agregar al carrito</button>
-              {/* onClick={handleAgregarAlCarrito} */}
+              <button id='agregar' onClick={agregarAlCarritoo}>Agregar al carrito</button>
               {user && user.rol === "admin" && (
                   <button id='borrar' onClick={borrarArticulo}>Borrar</button>
               )}

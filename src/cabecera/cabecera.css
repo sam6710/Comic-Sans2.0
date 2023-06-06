@@ -2,11 +2,19 @@
     border: none;
     background-color: transparent;
 }
-ul{
-    width: 100%;
+#nav1{
+    /* width: 60%; */
+    margin-left: 5%;
+    display: flex;
+    justify-content: flex-start;
 }
-li{
-    width: 100%;
+#nav2{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+#nav1 li{
+    margin-left: 0.4rem;
 }
 .dropdown-item:hover{
     background-color: #f5f5f5;

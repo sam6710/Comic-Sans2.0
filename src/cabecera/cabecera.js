@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./cabecera.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import Buscador from '../buscador/buscador';
 
 function Cabecera({user, handleLogout}) {
 
@@ -14,7 +15,7 @@ function Cabecera({user, handleLogout}) {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav" id='nav1'>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/">Inicio</a>
                         </li>
@@ -49,6 +50,9 @@ function Cabecera({user, handleLogout}) {
                                 <li><a className="dropdown-item" href="/galeria?editorial=dc">DC</a></li>
                             </ul>
                         </li>
+                        <Buscador />
+                    </ul>
+                    <ul className='navbar-nav' id='nav2'>
                         <li className="nav-item">
                             {user ? (
                                 <button className="nav-link active" aria-current="page" id="cerrarS" onClick={(handleLogout)}>Cerrar Sesión</button>

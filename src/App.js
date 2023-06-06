@@ -21,12 +21,9 @@ const db = getFirestore(firebaseApp);
 function App() {
   
   const [user, setUser] = useState(null);
-
   const [carrito, setCarrito] = useState([]);
 
-  // useEffect(() => {
-  //   console.log("carrito3", carrito);
-  // }, [carrito])
+  console.log("carrito", carrito);
 
   async function getRol(uid){
     const docRef = doc(db, "users", uid);
@@ -67,17 +64,14 @@ function App() {
     });
   };
 
-  // const agregarAlCarrito = (articulo) => {
-  //   console.log("articulo", articulo);
-  //   // setCarrito([...carrito, articulo]);
-  //   setCarrito(prevCarrito => [...prevCarrito, articulo]);
-  //   console.log("carrito2", carrito);
-  // };
-
   const isAdmin = user && user.rol == "admin";
   // console.log("isAdmin", isAdmin);
   // console.log("user", user);
   // console.log("user.rol", user && user.rol);
+
+  const agregarAlCarrito = (articulo) => {
+    setCarrito([...carrito, articulo]);
+  };
 
   return (
     <div className="App">
@@ -93,12 +87,24 @@ function App() {
             <Route path="/admin" element={<Navigate to="/" />} />
           )}
           <Route path="/galeria" element={<Galeria />}></Route>
-          <Route path="/detalle" element={<Detalle carrito={carrito} user={user}/>}/>
-          <Route path="/carrito" element={<Carrito carrito={carrito} />} />
+          <Route path="/detalle" element={<Detalle user={user} agregarAlCarrito={agregarAlCarrito}/>}/>
+          <Route path="/carrito" element={<Carrito carrito={carrito}/>} />
           <Route path="*" element={<h1>404</h1>}></Route>
         </Routes>
         <Pie/>
       </BrowserRouter>
+      <div>
+        <h2>Carrito de compras</h2>
+        {carrito.length === 0 ? (
+          <p>No hay artículos en el carrito</p>
+        ) : (
+          <ul>
+            {carrito.map((articulo, index) => (
+              <li key={index}>{articulo.titulo}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

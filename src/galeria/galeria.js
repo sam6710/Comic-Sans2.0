@@ -29,6 +29,9 @@ function Galeria() {
                 querySnapshot = await getDocs(
                   query(collection(db, 'articulos'), where('genero', '==', genero))
                 );
+                querySnapshot = await getDocs(
+                  query(collection(db, 'articulos'), where('genero2', '==', genero))
+                );
               } else if (editorial) {
                 console.log("editorial", editorial);
                 querySnapshot = await getDocs(
