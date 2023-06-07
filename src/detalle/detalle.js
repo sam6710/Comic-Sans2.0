@@ -84,6 +84,9 @@ function Detalle({ user, agregarAlCarrito }) {
           <div id='acciones'>
               <button id='agregar' onClick={agregarAlCarritoo}>Agregar al carrito</button>
               {user && user.rol === "admin" && (
+                  <button id='actualizar' onClick={actualizarArticulo}>Actualizar</button>
+              )}
+              {user && user.rol === "admin" && (
                   <button id='borrar' onClick={borrarArticulo}>Borrar</button>
               )}
           </div>

@@ -2,9 +2,9 @@
     margin-top: 1rem;
     padding: 0.4rem;
 }
-img{
+#carrusel img{
     width: 80%;
-    height: 14rem;
+    height: 24rem;
     object-fit: cover;
     object-position: center;
 }

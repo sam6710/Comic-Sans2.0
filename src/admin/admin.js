@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import firebaseApp from '../firebase_config.js';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getFirestore, doc, setDoc, getDocs, collection } from 'firebase/firestore';
+import './admin.css';
 
 function Admin(){
     
@@ -107,75 +108,88 @@ function Admin(){
     };
 
     return(
-        <div>
+        <div id='admin'>
             <div id="añadirArticulo">
-                <form onSubmit={subirImagen}>
+                <form id='form1' onSubmit={subirImagen}>
                     <h2>Añadir nuevo producto</h2>
-                    <label for="tipo">Tipo</label>
-                    <select id="tipo">
-                        <option value="manga">Manga</option>
-                        <option value="comic">Comic</option>
-                        <option value="novela">Novela ligera</option>
-                    </select>
-                    <label for="titulo">Título</label>
-                    <input type="text" id="titulo" placeholder="Título" required/>
-                    <label for="editorial">Editorial</label>
-                    <select id="editorial">
-                        <option value="norma">Norma editorial</option>
-                        <option value="marvel">Marvel</option>
-                        <option value="dc">DC</option>
-                        <option value="ivrea">Ivrea</option>
-                        <option value="panini">Panini</option>
-                        <option value="milky">Milky Way Ediciones</option>
-                        <option value="arechi">Arechi</option>
-                        <option value="planeta">Planeta</option>
-                    </select>
-                    <label for="año">Año</label>
-                    <input type="text" id="año" placeholder="Año"/>
-                    <label for="autor">Autor</label>
-                    <input type="text" id="autor" placeholder="Autor"/>
-                    <label for="genero">Género</label>
-                    <select id="genero" required>
-                        <option value="fantasia">Fantasía</option>
-                        <option value="terror">Terror</option>
-                        <option value="ciencia_ficcion">Ciencia ficción</option>
-                        <option value="romantica">Romántica</option>
-                        <option value="historica">Histórica</option>
-                        <option value="cotidiano">Cotidiano</option>
-                        <option value="accion">Accion</option>
-                        <option value="comedia">Comedia</option>
-                        <option value="aventura">Aventura</option>
-                        <option value="infantil">Infantil</option>
-                        <option value="juvenil">Juvenil</option>
-                        <option value="adulto">Adulto</option>
-                    </select>
-                    <label for="genero2">Género2</label>
-                    <select id="genero2">
-                        <option value="fantasia">Fantasía</option>
-                        <option value="terror">Terror</option>
-                        <option value="ciencia_ficcion">Ciencia ficción</option>
-                        <option value="romantica">Romántica</option>
-                        <option value="historica">Histórica</option>
-                        <option value="cotidiano">Cotidiano</option>
-                        <option value="accion">Accion</option>
-                        <option value="comedia">Comedia</option>
-                        <option value="aventura">Aventura</option>
-                        <option value="infantil">Infantil</option>
-                        <option value="juvenil">Juvenil</option>
-                        <option value="adulto">Adulto</option>
-                    </select>
-                    <label for="precio">Precio</label>
-                    <input type="text" id="precio" placeholder="Precio" required/>
-                    <label for="imagen">Imagen</label>
-                    <input type="file" id="imagen" placeholder="Imagen"/>
-                    <button className="btn btn-dark" type="submit">Añadir</button>
+                    <div id='Articuloseccion1'>
+                        <label for="tipo">Tipo</label>
+                        <select id="tipo">
+                            <option value="" disabled selected hidden>Tipo</option>
+                            <option value="manga">Manga</option>
+                            <option value="comic">Comic</option>
+                            <option value="novela_ligera">Novela ligera</option>
+                            <option value="novela">Novela</option>
+                        </select>
+                        <label for="titulo">Título</label>
+                        <input type="text" id="titulo" placeholder="Título" required/>
+                        <label for="editorial">Editorial</label>
+                        <select id="editorial">
+                            <option value="" disabled selected hidden>Editorial</option>
+                            <option value="norma">Norma editorial</option>
+                            <option value="marvel">Marvel</option>
+                            <option value="dc">DC</option>
+                            <option value="ivrea">Ivrea</option>
+                            <option value="panini">Panini</option>
+                            <option value="milky">Milky Way Ediciones</option>
+                            <option value="arechi">Arechi</option>
+                            <option value="planeta">Planeta</option>
+                            <option value="nova">Nova</option>
+                        </select>
+                        <label for="año">Año</label>
+                        <input type="text" id="año" placeholder="Año"/>
+                    </div>
+                    <div id='Articuloseccion2'>
+                        <label for="autor">Autor</label>
+                        <input type="text" id="autor" placeholder="Autor"/>
+                        <label for="genero">Género</label>
+                        <select id="genero" required>
+                            <option value="" disabled selected hidden>Género</option>
+                            <option value="fantasia">Fantasía</option>
+                            <option value="terror">Terror</option>
+                            <option value="ciencia_ficcion">Ciencia ficción</option>
+                            <option value="romance">Romance</option>
+                            <option value="historica">Histórica</option>
+                            <option value="cotidiano">Cotidiano</option>
+                            <option value="accion">Accion</option>
+                            <option value="comedia">Comedia</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="infantil">Infantil</option>
+                            <option value="juvenil">Juvenil</option>
+                            <option value="adulto">Adulto</option>
+                        </select>
+                        <label for="genero2">Género2</label>
+                        <select id="genero2">
+                            <option value="" disabled selected hidden>Género2</option>
+                            <option value="fantasia">Fantasía</option>
+                            <option value="terror">Terror</option>
+                            <option value="ciencia_ficcion">Ciencia ficción</option>
+                            <option value="romance">Romance</option>
+                            <option value="historica">Histórica</option>
+                            <option value="cotidiano">Cotidiano</option>
+                            <option value="accion">Accion</option>
+                            <option value="comedia">Comedia</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="infantil">Infantil</option>
+                            <option value="juvenil">Juvenil</option>
+                            <option value="adulto">Adulto</option>
+                        </select>
+                        <label for="precio">Precio</label>
+                        <input type="text" id="precio" placeholder="Precio" required/>
+                    </div>
+                    <div id='Articuloseccion3'>
+                        <label id='imagenLabel' for="imagen">Imagen</label>
+                        <br/>
+                        <input type="file" id="imagen" placeholder="Imagen" className='file-select' required/>
+                        <br/>
+                        <button className="btn btn-dark" type="submit">Añadir</button>
+                    </div>
                 </form>
             </div>
             <div id="añadirAdmin">
                 <form>
                     <h2>Añadir Admin</h2>
-                    <label htmlFor="selectUser">Seleccionar usuario:</label>
-                    <select id="selectUser" value={selectedUser} onChange={handleUserSelection}>
+                    <select className="selectUser" value={selectedUser} onChange={handleUserSelection}>
                         <option value="">Seleccione un usuario</option>
                         {users
                             .filter((user) => user.rol === 'user')
@@ -183,14 +197,15 @@ function Admin(){
                             <option key={user.id} value={user.id}>{user.correo}</option>
                             ))}
                     </select>
+                    <br/>
                     <button className="btn btn-dark" type="button" onClick={convertToAdmin}>Convertir en administrador</button>
                 </form>
             </div>
             <div id="quitarAdmin">
                 <form>
                     <h2>Quitar Admin</h2>
-                    <label htmlFor="selectUser">Seleccionar usuario:</label>
-                    <select id="selectUser" value={selectedUser} onChange={handleUserSelection}>
+                    <select className="selectUser" value={selectedUser} onChange={handleUserSelection}>
+                        <br/>
                         <option value="">Seleccione un usuario</option>
                         {users
                             .filter((user) => user.rol === 'admin')
@@ -198,7 +213,8 @@ function Admin(){
                             <option key={user.id} value={user.id}>{user.correo}</option>
                             ))}
                     </select>
-                    <button className="btn btn-dark" type="button" onClick={convertTouser}>Convertir en usuario</button>
+                    <br/>
+                    <button className="btn btn-dark" type="button" onClick={convertTouser}>Convertir en usuario normal</button>
                 </form>
             </div>
         </div>

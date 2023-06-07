@@ -1,8 +1,8 @@
-li{
+#novedades li{
     list-style: none;
     width: 20%;
 }
-ul{
+#novedades ul{
     display: flex;
 }
 #novedades{
@@ -22,4 +22,8 @@ ul{
 #novedades h2{
     font-size: 3rem;
     margin-bottom: 2rem;
+}
+#novedades img{
+    height: 20rem;
+    max-width: 14rem;
 }

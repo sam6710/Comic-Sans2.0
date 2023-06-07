@@ -31,10 +31,18 @@ function Cabecera({user, handleLogout}) {
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Géneros</a>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="/galeria?genero=accion">Acción</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=romance">Romance</a></li>
                                 <li><a className="dropdown-item" href="/galeria?genero=fantasia">Fantasía</a></li>
                                 <li><a className="dropdown-item" href="/galeria?genero=terror">Terror</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=ciencia_ficcion">Ciencia ficción</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=romance">Romance</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=histórica">Histórica</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=cotidiano">Cotidiano</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=accion">Acción</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=comedia">Comedia</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=aventura">Aventura</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=infantil">Infantl</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=juvenil">Juvenil</a></li>
+                                <li><a className="dropdown-item" href="/galeria?genero=adulto">Adulto</a></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
@@ -48,6 +56,7 @@ function Cabecera({user, handleLogout}) {
                                 <li><a className="dropdown-item" href="/galeria?editorial=arechi">Arechi</a></li>
                                 <li><a className="dropdown-item" href="/galeria?editorial=marvel">Marvel</a></li>
                                 <li><a className="dropdown-item" href="/galeria?editorial=dc">DC</a></li>
+                                <li><a className="dropdown-item" href="/galeria?editorial=nova">Nova</a></li>
                             </ul>
                         </li>
                         <Buscador />
