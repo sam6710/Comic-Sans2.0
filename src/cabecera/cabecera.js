@@ -10,53 +10,53 @@ function Cabecera({user, handleLogout}) {
     return(
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">Navbar</a>
+                <Link className="navbar-brand" to="/">Navbar</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav" id='nav1'>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/">Inicio</a>
+                            <Link className="nav-link active" aria-current="page" to="/">Inicio</Link>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tipos</a>
+                            <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tipos</Link>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="/galeria?tipo=manga">Manga</a></li>
-                                <li><a className="dropdown-item" href="/galeria?tipo=comic">Comic</a></li>
-                                <li><a className="dropdown-item" href="/galeria?tipo=novela">Novelas Ligeras</a></li>
-                                <li><a className="dropdown-item" href="/galeria">Libros</a></li>
+                                <li><Link className="dropdown-item" to="/galeria?tipo=manga">Manga</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?tipo=comic">Comic</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?tipo=novela">Novelas Ligeras</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria">Libros</Link></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Géneros</a>
+                            <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Géneros</Link>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="/galeria?genero=fantasia">Fantasía</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=terror">Terror</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=ciencia_ficcion">Ciencia ficción</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=romance">Romance</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=histórica">Histórica</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=cotidiano">Cotidiano</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=accion">Acción</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=comedia">Comedia</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=aventura">Aventura</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=infantil">Infantl</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=juvenil">Juvenil</a></li>
-                                <li><a className="dropdown-item" href="/galeria?genero=adulto">Adulto</a></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=fantasia">Fantasía</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=terror">Terror</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=ciencia_ficcion">Ciencia ficción</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=romance">Romance</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=histórica">Histórica</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=cotidiano">Cotidiano</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=accion">Acción</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=comedia">Comedia</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=aventura">Aventura</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=infantil">Infantl</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=juvenil">Juvenil</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=adulto">Adulto</Link></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Editoriales/Marca</a>
+                            <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Editoriales/Marca</Link>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="/galeria?editorial=ivrea">Ivrea</a></li>
-                                <li><a className="dropdown-item" href="/galeria?editorial=norma">Norma Editorial</a></li>
-                                <li><a className="dropdown-item" href="/galeria?editorial=planeta">Planeta</a></li>
-                                <li><a className="dropdown-item" href="/galeria?editorial=panini">Panini</a></li>
-                                <li><a className="dropdown-item" href="/galeria?editorial=milky">Milky Way Ediciones</a></li>
-                                <li><a className="dropdown-item" href="/galeria?editorial=arechi">Arechi</a></li>
-                                <li><a className="dropdown-item" href="/galeria?editorial=marvel">Marvel</a></li>
-                                <li><a className="dropdown-item" href="/galeria?editorial=dc">DC</a></li>
-                                <li><a className="dropdown-item" href="/galeria?editorial=nova">Nova</a></li>
+                                <li><Link className="dropdown-item" to="/galeria?editorial=ivrea">Ivrea</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?editorial=norma">Norma Editorial</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?editorial=planeta">Planeta</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?editorial=panini">Panini</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?editorial=milky">Milky Way Ediciones</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?editorial=arechi">Arechi</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?editorial=marvel">Marvel</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?editorial=dc">DC</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?editorial=nova">Nova</Link></li>
                             </ul>
                         </li>
                         <Buscador />
@@ -66,17 +66,17 @@ function Cabecera({user, handleLogout}) {
                             {user ? (
                                 <button className="nav-link active" aria-current="page" id="cerrarS" onClick={(handleLogout)}>Cerrar Sesión</button>
                             ) : (
-                                <a className="nav-link active" aria-current="page" href="/login">Iniciar Sesión</a>
+                                <Link className="nav-link active" aria-current="page" to="/login">Iniciar Sesión</Link>
                             )}
                         </li>
                         <li className="nav-item">
                             {user && user.rol === "admin" ? (
                                 <Link className="nav-link active" aria-current="page" to="/admin">Administración</Link>
                             ) : (
-                                <a className="nav-link active" aria-current="page" href="/#"></a>
+                                <Link className="nav-link active" aria-current="page" to="/#"></Link>
                             )}
                         </li>
-                        <a href="/carrito"><FontAwesomeIcon id="carrito" icon={faShoppingCart} /></a>
+                        <Link to="/carrito"><FontAwesomeIcon id="carrito" icon={faShoppingCart} /></Link>
                     </ul>
                 </div>
             </div>

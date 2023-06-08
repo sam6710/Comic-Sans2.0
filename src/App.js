@@ -9,6 +9,7 @@ import Admin from "./admin/admin";
 import Galeria from "./galeria/galeria";
 import Detalle from './detalle/detalle';
 import Carrito from './carrito/carrito';
+import Compra from './compra/compra';
 import firebaseApp from './firebase_config.js';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from 'react';
@@ -69,7 +70,7 @@ function App() {
   // console.log("user", user);
   // console.log("user.rol", user && user.rol);
 
-  const agregarAlCarrito = (articulo) => {
+  function agregarAlCarrito(articulo){
     setCarrito([...carrito, articulo]);
   };
 
@@ -87,8 +88,9 @@ function App() {
             <Route path="/admin" element={<Navigate to="/" />} />
           )}
           <Route path="/galeria" element={<Galeria />}></Route>
-          <Route path="/detalle" element={<Detalle user={user} agregarAlCarrito={agregarAlCarrito}/>}/>
-          <Route path="/carrito" element={<Carrito carrito={carrito}/>} />
+          <Route path="/detalle" element={<Detalle user={user} agregarAlCarrito={agregarAlCarrito} carrito={carrito} setCarrito={setCarrito}/>}/>
+          <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito}/>} />
+          <Route path="/compra" element={<Compra />} />
           <Route path="*" element={<h1>404</h1>}></Route>
         </Routes>
         <Pie/>

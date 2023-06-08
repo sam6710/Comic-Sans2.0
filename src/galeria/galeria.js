@@ -72,14 +72,20 @@ function Galeria() {
             }));
             console.log("articlesData", articlesData);
 
-            const articlesData2 = querySnapshot2.docs.map((doc) => ({
-              id: doc.id,
-              ...doc.data(),
-            }));
+            if(querySnapshot2){
+              const articlesData2 = querySnapshot2.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+              }));
 
-            const combinedArticlesData = [...articlesData, ...articlesData2];
-            
-            setArticles(combinedArticlesData);
+              const combinedArticlesData = [...articlesData, ...articlesData2];
+
+              setArticles(combinedArticlesData);
+
+            }
+            else{
+              setArticles(articlesData);
+            }            
           } catch (error) {
             console.error('Error fetching articles:', error);
           }

@@ -1,0 +1,70 @@
+#carrito {
+    margin: 0 auto;
+    padding: 20px;
+}
+  
+#carrito table {
+    width: 70%;
+    /* list-style: none; */
+    padding: 0;
+    margin-left: 10%;
+}
+  
+/* #carrito li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-left: 3rem;
+} */
+  
+#carrito table img {
+    width: 100px;
+    height: auto;
+    margin-right: 2rem;
+    padding: 0.4rem;
+}
+
+#carrito #datos1{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 3rem;
+}
+
+#tr_principal{
+    background-color: rgb(215, 215, 215)
+}
+
+#th_articulo{
+    padding-left: 19rem;
+}
+
+#tr_articulo{
+    margin-top: 2rem;
+}
+
+#td_articulo{
+    padding-left: 6rem;
+    display: flex;
+}
+  
+/* #carrito li div {
+    flex-grow: 1;
+} */
+  
+/* #carrito li p {
+    margin: 0;
+} */
+
+/* #carrito  li>#div_imagen{
+    width: 10%;
+    height: auto;
+    margin-right: 20px;
+} */
+  
+/* #carrito button {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+} */

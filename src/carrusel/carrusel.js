@@ -5,9 +5,13 @@ function Carrusel() {
   const TIEMPO_INTERVALO_MILESIMAS_SEG = 4000;
 
   const IMAGENES = [
-    "./imagenes/norma.jpg",
+    "./imagenes/comic.jpg",
     "./imagenes/marvel.jpg",
     "./imagenes/dc.jpg",
+    "./imagenes/manga.jpg",
+    "./imagenes/Manga-cartel.jpg",
+    "./imagenes/jump.jpg",
+    "./imagenes/panda.jpg",
   ];
 
   // let posicionActual = 0;
