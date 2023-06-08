@@ -67,6 +67,7 @@ function Register(){
     }
 
     function validarFormulario(){
+        return true;
     }
 
     return(
