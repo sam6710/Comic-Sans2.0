@@ -23,6 +23,7 @@ function App() {
   
   const [user, setUser] = useState(null);
   const [carrito, setCarrito] = useState([]);
+  const [initializing, setInitializing] = useState(true);
 
   console.log("carrito", carrito);
 
@@ -41,19 +42,37 @@ function App() {
         rol: rol
       };
       setUser(userData);
-      // console.log("aaaa", userData);
     });
   }
 
-  onAuthStateChanged(auth, (userFirebase) => {
-    if (userFirebase) {
-      if(!user){
-        setUserWithRol(userFirebase);
+  // onAuthStateChanged(auth, (userFirebase) => {
+  //   if (userFirebase) {
+  //     if(!user){
+  //       setUserWithRol(userFirebase);
+  //     }
+  //   } else {
+  //     setUser(null);
+  //   }
+  // });
+
+  useEffect(() => {
+
+    const unsubscribe = onAuthStateChanged(auth, (userFirebase) => {
+      if (userFirebase) {
+        if (!user) {
+          setUserWithRol(userFirebase);
+        }
+      } else {
+        setUser(null);
       }
-    } else {
-      setUser(null);
-    }
-  });
+
+      if (initializing) {
+        setInitializing(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [user, initializing]);
 
   const handleLogout = () => {
     signOut(auth)
@@ -65,10 +84,8 @@ function App() {
     });
   };
 
-  const isAdmin = user && user.rol == "admin";
-  // console.log("isAdmin", isAdmin);
-  // console.log("user", user);
-  // console.log("user.rol", user && user.rol);
+  // const isAdmin = user && user.rol == "admin";
+  const isAdmin = user && user.rol && user.rol === "admin";
 
   function agregarAlCarrito(articulo){
     setCarrito([...carrito, articulo]);
@@ -82,9 +99,10 @@ function App() {
           <Route path="/" element={<Landing />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
-          {isAdmin ? (
+          {isAdmin && (
             <Route path="/admin" element={<Admin />} />
-          ) : (
+          )}
+          {!isAdmin &&(
             <Route path="/admin" element={<Navigate to="/" />} />
           )}
           <Route path="/galeria" element={<Galeria />}></Route>
@@ -95,7 +113,7 @@ function App() {
         </Routes>
         <Pie/>
       </BrowserRouter>
-      <div>
+      {/* <div>
         <h2>Carrito de compras</h2>
         {carrito.length === 0 ? (
           <p>No hay artículos en el carrito</p>
@@ -106,7 +124,7 @@ function App() {
             ))}
           </ul>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
