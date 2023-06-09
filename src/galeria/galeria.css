@@ -21,7 +21,7 @@
 #galeria li{
     list-style: none;
     width: 23%;
-    border: lightgray 1px solid;
+    border: rgba(211, 211, 211, 0.5) 1px solid;
 }
 #galeria li:hover{
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);

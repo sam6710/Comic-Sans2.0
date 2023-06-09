@@ -1,6 +1,7 @@
 #carrito {
     margin: 0 auto;
     padding: 20px;
+    height: 100%;
 }
   
 #carrito table {
@@ -16,14 +17,13 @@
     margin-bottom: 2rem;
     padding-left: 3rem;
 } */
-  
+
 #carrito table img {
     width: 100px;
     height: auto;
     margin-right: 2rem;
     padding: 0.4rem;
 }
-
 #carrito #datos1{
     width: 100%;
     display: flex;
@@ -31,22 +31,24 @@
     align-items: center;
     padding-left: 3rem;
 }
-
 #tr_principal{
     background-color: rgb(215, 215, 215)
 }
-
 #th_articulo{
     padding-left: 19rem;
 }
-
 #tr_articulo{
     margin-top: 2rem;
 }
-
 #td_articulo{
     padding-left: 6rem;
     display: flex;
+}
+#vaciar{
+    margin-left: 1rem;
+}
+#botonesCompra{
+    margin-top: 2rem;
 }
   
 /* #carrito li div {

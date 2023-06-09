@@ -116,8 +116,12 @@ function Carrito({ carrito, setCarrito }) {
             </tfoot>
           </table>
         )}
-        <button onClick={handleComprar}>Comprar</button>
-        <button onClick={vaciarCarrito}>Vaciar carrito</button>
+        {carrito.length !== 0 && (
+          <div id='botonesCompra'>
+            <button className="btn btn-dark" onClick={handleComprar}>Comprar</button>
+            <button className="btn btn-dark" id='vaciar' onClick={vaciarCarrito}>Vaciar carrito</button>
+          </div>
+        )}
       </div>
     );
 }

@@ -10,7 +10,7 @@ function Cabecera({user, handleLogout}) {
     return(
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Navbar</Link>
+                <Link className="navbar-brand" to="/"><img id='logo' src='./logo.png'></img></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -40,7 +40,7 @@ function Cabecera({user, handleLogout}) {
                                 <li><Link className="dropdown-item" to="/galeria?genero=accion">Acción</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?genero=comedia">Comedia</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?genero=aventura">Aventura</Link></li>
-                                <li><Link className="dropdown-item" to="/galeria?genero=infantil">Infantl</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=infantil">Infantil</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?genero=juvenil">Juvenil</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?genero=adulto">Adulto</Link></li>
                             </ul>
@@ -54,9 +54,8 @@ function Cabecera({user, handleLogout}) {
                                 <li><Link className="dropdown-item" to="/galeria?editorial=panini">Panini</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?editorial=milky">Milky Way Ediciones</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?editorial=arechi">Arechi</Link></li>
-                                <li><Link className="dropdown-item" to="/galeria?editorial=marvel">Marvel</Link></li>
-                                <li><Link className="dropdown-item" to="/galeria?editorial=dc">DC</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?editorial=nova">Nova</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?editorial=kibook">Kibook</Link></li>
                             </ul>
                         </li>
                         <Buscador />
@@ -64,7 +63,7 @@ function Cabecera({user, handleLogout}) {
                     <ul className='navbar-nav' id='nav2'>
                         <li className="nav-item">
                             {user ? (
-                                <button className="nav-link active" aria-current="page" id="cerrarS" onClick={(handleLogout)}>Cerrar Sesión</button>
+                                <button className="nav-link active" aria-current="page" id="cerrarS" onClick={(handleLogout)}><i class="fa fa-sign-out" aria-hidden="true"></i></button>
                             ) : (
                                 <Link className="nav-link active" aria-current="page" to="/login">Iniciar Sesión</Link>
                             )}
@@ -76,7 +75,7 @@ function Cabecera({user, handleLogout}) {
                                 <Link className="nav-link active" aria-current="page" to="/#"></Link>
                             )}
                         </li>
-                        <Link to="/carrito"><FontAwesomeIcon id="carrito" icon={faShoppingCart} /></Link>
+                        <Link id='carrito_container' to="/carrito"><FontAwesomeIcon id="carritoIcon" icon={faShoppingCart} /></Link>
                     </ul>
                 </div>
             </div>

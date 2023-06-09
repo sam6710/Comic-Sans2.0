@@ -54,7 +54,7 @@ function Buscador() {
 
     return(
         <li id='li-buscador' className="nav-item">
-            <input id='buscador' type='text' placeholder='Buscar... 🔎' value={searchValue} onChange={handleInputChange} onKeyDown={handleSearch}/>
+            <input id='buscador' type='text' placeholder='Buscar...' value={searchValue} onChange={handleInputChange} onKeyDown={handleSearch}/>
         </li>
     );
 };

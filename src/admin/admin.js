@@ -127,14 +127,13 @@ function Admin(){
                         <select id="editorial">
                             <option value="" disabled selected hidden>Editorial</option>
                             <option value="norma">Norma editorial</option>
-                            <option value="marvel">Marvel</option>
-                            <option value="dc">DC</option>
                             <option value="ivrea">Ivrea</option>
                             <option value="panini">Panini</option>
                             <option value="milky">Milky Way Ediciones</option>
                             <option value="arechi">Arechi</option>
                             <option value="planeta">Planeta</option>
                             <option value="nova">Nova</option>
+                            <option value="kibook">Kibook</option>
                         </select>
                         <label for="año">Año</label>
                         <input type="text" id="año" placeholder="Año"/>
