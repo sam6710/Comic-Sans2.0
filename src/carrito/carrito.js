@@ -1,7 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react';
 import './carrito.css'
-import Cookies from 'js-cookie';
 import { useNavigate  } from 'react-router-dom';
 
 function Carrito({ carrito, setCarrito }) {
@@ -12,63 +10,34 @@ function Carrito({ carrito, setCarrito }) {
       setCarrito([]);
     };
 
-    // useEffect(() => {
-    //   const carritoGuardado = Cookies.get('carrito');
-    //   if (carritoGuardado) {
-    //     setCarrito(carritoGuardado);
-    //   }
-    // }, []);
-  
-    // useEffect(() => {
-    //   Cookies.set('carrito', JSON.stringify(carrito), { expires: 1 / 24 });
-    // }, [carrito]);
+    const carritoCantidad = carrito.map((articulo) => {
+      return {
+        ...articulo,
+        cantidadTotal: 1
+      };
+    });
 
-    // useEffect(() => {
-    //   const carritoGuardado = JSON.parse(localStorage.getItem('carrito'));
-    //   const carritoExpiracion = localStorage.getItem('carritoExpiracion');
-    //   if (carritoGuardado && carritoExpiracion) {
-    //     const currentTime = new Date().getTime();
-    //     if (currentTime < carritoExpiracion) {
-    //       setCarrito(carritoGuardado);
-    //     } else {
-    //       // Carrito expirado, borrar los datos
-    //       localStorage.removeItem('carrito');
-    //       localStorage.removeItem('carritoExpiracion');
-    //     }
-    //   }
-    // }, []);
-  
-    // useEffect(() => {
-    //   localStorage.setItem('carrito', JSON.stringify(carrito));
-    //   // Establecer la fecha de expiración en 1 hora
-    //   const expiracion = new Date().getTime() + 60 * 60 * 1000;
-    //   localStorage.setItem('carritoExpiracion', expiracion);
-    // }, [carrito]);
-  
-  
-    // useEffect(() => {
-    //   const actualizarCantidad = () => {
-    //     const carritoActualizado = carrito.reduce((resultado, articulo) => {
-    //       const existente = resultado.find((item) => item.titulo === articulo.titulo);
-    //       if (existente) {
-    //         // Artículo duplicado, incrementar cantidad
-    //         existente.cantidad += 1;
-    //       } else {
-    //         // Artículo no duplicado, agregar al resultado
-    //         resultado.push({ ...articulo, cantidad: 1 });
-    //       }
-    //       return resultado;
-    //     }, []);
-    //     setCarrito(carritoActualizado);
-    //   };
-    //   actualizarCantidad();
-    // }, []);
+    const carritoAgrupado = carritoCantidad.reduce((resultado, articulo) => {
+      const existente = resultado.find((item) => item.titulo === articulo.titulo);
+      if (existente) {
+        existente.cantidad += 1;
+      } else {
+        resultado.push({ ...articulo, cantidad: 1 });
+      }
+      return resultado;
+    }, []);
 
     const navigate = useNavigate();
 
     const handleComprar = () => {
       navigate('/compra');
     };
+
+    const totalPedido = carrito.reduce((total, articulo) => {
+      const precio = parseFloat(articulo.precio.replace(',', '.'));
+      const cantidad = articulo.cantidad || 1;
+      return total + (precio * cantidad);
+    }, 0);
 
     return (
       <div id='carrito'>
@@ -86,7 +55,7 @@ function Carrito({ carrito, setCarrito }) {
               </tr>
             </thead>
             <tbody>
-              {carrito.map((articulo, index) => (
+              {carritoAgrupado.map((articulo, index) => (
                 <tr key={index} id='tr_articulo'>
                   <td id='td_articulo'>
                     <div id='div_imagen'>
@@ -100,7 +69,7 @@ function Carrito({ carrito, setCarrito }) {
                   </td>
                   <td>{articulo.cantidad}</td>
                   <td>{articulo.precio}€</td>
-                  <td>{articulo.precio * articulo.cantidad}€</td>
+                  <td>{(parseFloat(articulo.precio.replace(',' , '.')) * articulo.cantidad).toFixed(2)}€</td>
                 </tr>
               ))}
             </tbody>
@@ -109,7 +78,7 @@ function Carrito({ carrito, setCarrito }) {
                 <td colSpan="3"><b>Total:</b></td>
                 <td>
                   <b>
-                    {carrito.reduce((total, articulo) => total + articulo.precio * articulo.cantidad, 0)}€
+                  {totalPedido.toFixed(2)}€
                   </b>
                 </td>
               </tr>

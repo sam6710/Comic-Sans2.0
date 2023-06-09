@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './compra.css';
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css';
 
 function Compra() {
+    
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
+
+    const handleKeyPress = (event) => {
+        const keyCode = event.keyCode || event.which;
+        const keyValue = String.fromCharCode(keyCode);
+        const numericRegex = /^[0-9]*$/; // Expresión regular para solo permitir números
+    
+        if (!numericRegex.test(keyValue)) {
+          event.preventDefault();
+        }
+      };
 
     return (
-        <div>
+        <div id='divCompra'>
             <h1>Formulario de Pago</h1>
   
             <form action="procesar_pago.php" method="post">
@@ -11,13 +30,13 @@ function Compra() {
                 <input type="text" id="nombre" name="nombre" required/><br/><br/>
                 
                 <label for="tarjeta">Número de tarjeta:</label>
-                <input type="text" id="tarjeta" name="tarjeta" required/><br/><br/>
+                <input type="text" id="tarjeta" name="tarjeta" required maxLength={18} onKeyPress={handleKeyPress}/><br/><br/>
                 
                 <label for="fecha">Fecha de vencimiento:</label>
-                <input type="text" id="fecha" name="fecha" required/><br/><br/>
+                <DatePicker id='fecha' selected={selectedDate} onChange={handleDateChange} showMonthYearPicker dateFormat="MM/yyyy" /><br/><br/>
                 
                 <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" required/><br/><br/>
+                <input type="text" id="cvv" name="cvv" required maxLength={3} onKeyPress={handleKeyPress}/><br/><br/>
                 
                 <label for="forma_pago">Forma de pago:</label>
                 <select id="forma_pago" name="forma_pago">
