@@ -33,7 +33,7 @@
 #Articuloseccion3{
     grid-area: 4 / 1 / 5 / 3;
 }
-#añadriAdmin{
+#añadirAdmin{
     grid-area: 4 / 1 / 6 / 3;
 }
 #quitarAdmin{

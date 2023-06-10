@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import firebaseApp from '../firebase_config.js';
 import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import "./login.css";
 
 const auth = getAuth(firebaseApp);
 
@@ -83,13 +84,13 @@ function Login(){
                 </div>
             </div>
             <div id="register_google" className="col-md-4 p-5 shadow-sm border rounded-3">
-                    <form onSubmit={submitL2}>
-                        <h2 className="text-center mb-4 text-dark">Inicio de Sesión con Google</h2>
-                        <div className="d-grid">
-                            <button className="btn btn-dark" type="submit">Iniciar Sesión</button>
-                        </div>
-                    </form>
-                </div>
+                <form onSubmit={submitL2}>
+                    <h2 className="text-center mb-4 text-dark">Inicio de Sesión con Google</h2>
+                    <div className="d-grid">
+                        <button className="btn btn-dark" type="submit">Iniciar Sesión</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

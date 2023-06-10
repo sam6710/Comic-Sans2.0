@@ -3,21 +3,11 @@
     padding: 20px;
     height: 100%;
 }
-  
 #carrito table {
     width: 70%;
-    /* list-style: none; */
     padding: 0;
     margin-left: 10%;
 }
-  
-/* #carrito li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding-left: 3rem;
-} */
-
 #carrito table img {
     width: 100px;
     height: auto;
@@ -50,23 +40,12 @@
 #botonesCompra{
     margin-top: 2rem;
 }
-  
-/* #carrito li div {
-    flex-grow: 1;
-} */
-  
-/* #carrito li p {
-    margin: 0;
-} */
-
-/* #carrito  li>#div_imagen{
-    width: 10%;
-    height: auto;
-    margin-right: 20px;
-} */
-  
-/* #carrito button {
-    display: block;
-    margin-top: 20px;
-    width: 100%;
-} */
+#eliminar{
+    margin-left: 1rem;
+    color: red;
+    border: none;
+    background-color: transparent;
+}
+#carrito h2{
+    font-family: 'Josefin Sans', sans-serif;
+}

@@ -1,6 +1,13 @@
+#divCompra{
+    margin-top: 2rem;
+    font-size: calc(0.4em + 0.5vw);
+}
 #divCompra label{
     margin-right: 0.4rem;
 }
 .react-datepicker-popper {
     left: 45% !important;
+}
+#divCompra h1{
+    font-family: 'Josefin Sans', sans-serif;
 }

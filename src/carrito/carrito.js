@@ -2,7 +2,7 @@ import React from 'react';
 import './carrito.css'
 import { useNavigate  } from 'react-router-dom';
 
-function Carrito({ carrito, setCarrito }) {
+function Carrito({ carrito, setCarrito, user }) {
 
   console.log("carrito", carrito);
 
@@ -30,7 +30,11 @@ function Carrito({ carrito, setCarrito }) {
     const navigate = useNavigate();
 
     const handleComprar = () => {
-      navigate('/compra');
+      if (user) {
+        navigate('/compra');
+      } else {
+        navigate('/login');
+      }
     };
 
     const totalPedido = carrito.reduce((total, articulo) => {
@@ -38,6 +42,11 @@ function Carrito({ carrito, setCarrito }) {
       const cantidad = articulo.cantidad || 1;
       return total + (precio * cantidad);
     }, 0);
+
+    const eliminarArticulo = (articuloId) => {
+      const nuevoCarrito = carrito.filter((articulo) => articulo.titulo !== articuloId);
+      setCarrito(nuevoCarrito);
+    };
 
     return (
       <div id='carrito'>
@@ -67,7 +76,7 @@ function Carrito({ carrito, setCarrito }) {
                       <p>Autor: {articulo.autor}</p>
                     </div>
                   </td>
-                  <td>{articulo.cantidad}</td>
+                  <td>{articulo.cantidad}<button id="eliminar" onClick={() => eliminarArticulo(articulo.titulo)}>Eliminar</button></td>
                   <td>{articulo.precio}€</td>
                   <td>{(parseFloat(articulo.precio.replace(',' , '.')) * articulo.cantidad).toFixed(2)}€</td>
                 </tr>

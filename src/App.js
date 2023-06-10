@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Landing from "./initial-page/initial-page";
 import Cabecera from "./cabecera/cabecera";
 import Pie from "./pie/pie";
@@ -45,16 +45,6 @@ function App() {
     });
   }
 
-  // onAuthStateChanged(auth, (userFirebase) => {
-  //   if (userFirebase) {
-  //     if(!user){
-  //       setUserWithRol(userFirebase);
-  //     }
-  //   } else {
-  //     setUser(null);
-  //   }
-  // });
-
   useEffect(() => {
 
     const unsubscribe = onAuthStateChanged(auth, (userFirebase) => {
@@ -77,14 +67,13 @@ function App() {
   const handleLogout = () => {
     signOut(auth)
     .then(() => {
-        console.log("Cerrando sesión");
+      console.log("Cerrando sesión");
     }
     ).catch((error) => {
-        console.log(error);
+      console.log(error);
     });
   };
 
-  // const isAdmin = user && user.rol == "admin";
   const isAdmin = user && user.rol && user.rol === "admin";
 
   function agregarAlCarrito(articulo){
@@ -107,24 +96,12 @@ function App() {
           )}
           <Route path="/galeria" element={<Galeria />}></Route>
           <Route path="/detalle" element={<Detalle user={user} agregarAlCarrito={agregarAlCarrito} carrito={carrito} setCarrito={setCarrito}/>}/>
-          <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito}/>} />
+          <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito} user={user}/>} />
           <Route path="/compra" element={<Compra />} />
           <Route path="*" element={<h1>404</h1>}></Route>
         </Routes>
         <Pie/>
       </BrowserRouter>
-      {/* <div>
-        <h2>Carrito de compras</h2>
-        {carrito.length === 0 ? (
-          <p>No hay artículos en el carrito</p>
-        ) : (
-          <ul>
-            {carrito.map((articulo, index) => (
-              <li key={index}>{articulo.titulo}</li>
-            ))}
-          </ul>
-        )}
-      </div> */}
     </div>
   );
 }

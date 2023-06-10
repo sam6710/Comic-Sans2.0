@@ -8,7 +8,7 @@ import Buscador from '../buscador/buscador';
 function Cabecera({user, handleLogout}) {
 
     return(
-        <nav className="navbar navbar-expand-lg bg-light">
+        <nav className="navbar navbar-expand-lg bg-light border-bottom">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/"><img id='logo' src='./imagenes/logo.png'></img></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@ function Cabecera({user, handleLogout}) {
                                 <li><Link className="dropdown-item" to="/galeria?genero=terror">Terror</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?genero=ciencia_ficcion">Ciencia ficción</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?genero=romance">Romance</Link></li>
-                                <li><Link className="dropdown-item" to="/galeria?genero=histórica">Histórica</Link></li>
+                                <li><Link className="dropdown-item" to="/galeria?genero=historica">Histórica</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?genero=cotidiano">Cotidiano</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?genero=accion">Acción</Link></li>
                                 <li><Link className="dropdown-item" to="/galeria?genero=comedia">Comedia</Link></li>
@@ -63,7 +63,7 @@ function Cabecera({user, handleLogout}) {
                     <ul className='navbar-nav' id='nav2'>
                         <li className="nav-item">
                             {user ? (
-                                <button className="nav-link active" aria-current="page" id="cerrarS" onClick={(handleLogout)}><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+                                <button className="nav-link active" aria-current="page" id="cerrarS" onClick={(handleLogout)}><Link to="/"><i id='cSesion' class="fa fa-sign-out" aria-hidden="true"></i></Link></button>
                             ) : (
                                 <Link className="nav-link active" aria-current="page" to="/login">Iniciar Sesión</Link>
                             )}

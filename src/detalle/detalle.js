@@ -27,7 +27,7 @@ function Detalle({ user, carrito, setCarrito }) {
     const [autor, setAutor] = useState('');
     const [imagen, setImagen] = useState(null);
 
-    
+    const [agregadoVisible, setAgregadoVisible] = useState(false);
 
     const navigate  = useNavigate ();
     
@@ -87,6 +87,11 @@ function Detalle({ user, carrito, setCarrito }) {
 
     const agregarAlCarritoo = (articulo) => {
       setCarrito([...carrito, articulo]);
+      setAgregadoVisible(true);
+
+    setTimeout(() => {
+      setAgregadoVisible(false);
+    }, 2000);
     };
 
     const actualizarArticulo = () => {
@@ -168,6 +173,9 @@ function Detalle({ user, carrito, setCarrito }) {
                 {user && user.rol === "admin" && (
                     <button id='borrar' className="btn btn-dark" onClick={borrarArticulo}>Borrar</button>
                 )}
+                <div id='añadido' style={{ display: agregadoVisible ? 'block' : 'none' }}>
+                  <p>Artículo añadido al carrito</p>
+                </div>
             </div>
             <Modal id='borrarModal' isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Confirmar Borrado">
               <h2>Confirmar Borrado</h2>
