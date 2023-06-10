@@ -7,7 +7,7 @@ import Buscador from '../buscador/buscador';
 
 function Cabecera({user, handleLogout}) {
 
-    const logo = "./imagenes/logo.png";
+    const logo = "./imagenes/logo.jpg";
 
     return(
         <nav className="navbar navbar-expand-lg bg-light border-bottom">
