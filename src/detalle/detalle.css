@@ -212,7 +212,25 @@
     #actualizar{
         margin-bottom: calc(9% - 1rem);
     }
+    #añadido{
+        margin-top: 0;
+    }
     #detalle{
-        margin-bottom: 40rem;
+        margin-bottom: 52rem;
+    }
+    #form_actu select, input{
+        height: 1.6rem;
+    }
+    #actualizacionSeccion1{
+        margin-left: 2%;
+        width: 44%;
+    }
+    #actualizacionSeccion2{
+        margin-left: 32%;
+        width: 44%;
+    }
+    #actualizacionSeccion3{
+        margin-left: 0%;
+        margin-top: -15rem;
     }
 }
