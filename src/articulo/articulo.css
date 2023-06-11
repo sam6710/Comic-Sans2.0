@@ -1,5 +1,7 @@
 .articulo{
     width: 100%;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: calc(0.8rem + 0.5vw);
 }
 .articulo img{
     /* width: 100%; */

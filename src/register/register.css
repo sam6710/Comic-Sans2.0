@@ -4,3 +4,10 @@
 #div_register h2{
     font-family: 'Josefin Sans', sans-serif;
 }
+@media screen and (max-width: 576px){
+    #register{
+        margin-top: calc(20% - 1rem);
+        display: flex;
+        flex-direction: column;
+    }
+}

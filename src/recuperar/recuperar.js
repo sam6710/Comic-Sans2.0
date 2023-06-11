@@ -32,7 +32,7 @@ function Recuperar(){
                 <h2 className="text-center mb-4 text-dark">Recuperación de contraseña</h2>
                 <form onSubmit={handleFormSubmit}>
                     <div className="mb-3">
-                        <label for="exampleInputEmail1" className="form-label">Correo</label>
+                        <label htmlFor="exampleInputEmail1" className="form-label">Correo</label>
                         <input type="email" className="form-control border border-dark" id="email" aria-describedby="emailHelp" required/>
                     </div>
                     <div className="d-grid">

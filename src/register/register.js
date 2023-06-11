@@ -27,8 +27,6 @@ function Register(){
             else{
                 var rol = "user";
             }
-
-            console.log(email, password, rol);
             registerEmailPassword(email, password, rol);
         }
         else{
@@ -38,12 +36,7 @@ function Register(){
 
     function submitR2 (e){
         e.preventDefault();
-        // if(validarFormulario()){
-            registerWithGoogle();
-        // }
-        // else{
-        //     console.log("Error");
-        // }
+        registerWithGoogle();
     }
 
     async function registerEmailPassword(email, password, rol){
@@ -51,7 +44,7 @@ function Register(){
         .then((userCredential) => {
             return userCredential.user;
         });
-        console.log(infoUser);
+        // console.log(infoUser);
         const docuREef = doc(db, "users", infoUser.uid);
         setDoc(docuREef, {correo: email, rol: rol});
     }
@@ -61,7 +54,7 @@ function Register(){
         .then((userCredential) => {
             return userCredential.user;
         })
-        console.log(infoUser);
+        // console.log(infoUser);
         const email = infoUser.email;
         if(email == "samgope100@gmail.com"){
             var rol = "admin";

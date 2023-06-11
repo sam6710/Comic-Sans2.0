@@ -52,7 +52,6 @@ function Detalle({ user, carrito, setCarrito }) {
         }
       };
   
-      console.log("usuario", user);
       fetchArticulo();
     }, []);
 
@@ -97,9 +96,11 @@ function Detalle({ user, carrito, setCarrito }) {
     };
 
     const agregarAlCarritoo = (articulo) => {
-      setCarrito([...carrito, articulo]);
+      if (user) {
+        setCarrito([...carrito, articulo]);
+      }
       setAgregadoVisible(true);
-
+  
       setTimeout(() => {
         setAgregadoVisible(false);
       }, 2000);
@@ -174,7 +175,11 @@ function Detalle({ user, carrito, setCarrito }) {
                     <button id='borrar' className="btn btn-dark" onClick={borrarArticulo}>Borrar</button>
                 )}
                 <div id='añadido' style={{ display: agregadoVisible ? 'block' : 'none' }}>
-                  <p>Artículo añadido al carrito</p>
+                  {user ? (
+                    <p>Artículo añadido al carrito</p>
+                  ) : (
+                    <p id='inicioRequired'>Debes iniciar sesión para esta acción</p>
+                  )}
                 </div>
             </div>
             <Modal id='borrarModal' isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Confirmar Borrado">

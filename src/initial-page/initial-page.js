@@ -1,6 +1,7 @@
 import React from 'react';
 import Novedades from '../novedades/novedades';
 import Carrusel from '../carrusel/carrusel';
+import "./initial-page.css";
 
 // Componente Landing (página inicial)
 

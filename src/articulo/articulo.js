@@ -6,8 +6,6 @@ import './articulo.css';
 
 function Articulo({ articulo }) {
 
-    // console.log(articulo);
-
     return (
         <div className='articulo'>
             <Link to={`/detalle?id=${articulo.id}`} className='link-no-underline'>
@@ -15,7 +13,6 @@ function Articulo({ articulo }) {
                 <img src={articulo.imagen} alt="Imagen del artículo" />
                 <p>{articulo.precio}€</p>
                 <p>{articulo.autor}</p>
-                {/* <input id='product_id' type='hidden' value={ articulo.id }/> */}
             </Link>
         </div>
     );

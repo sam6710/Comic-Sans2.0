@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import "./cabecera.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -63,16 +63,16 @@ function Cabecera({user, handleLogout}) {
                         <Buscador />
                     </ul>
                     <ul className='navbar-nav' id='nav2'>
-                        <li className="nav-item">
+                        <li className="nav-item" id='iniciar_li'>
                             {user ? (
-                                <button className="nav-link active" aria-current="page" id="cerrarS" onClick={(handleLogout)}><Link to="/"><i id='cSesion' class="fa fa-sign-out" aria-hidden="true"></i></Link></button>
+                                <button className="nav-link active" aria-current="page" id="cerrarS" onClick={(handleLogout)}><Link to="/"><i id='cSesion' className="fa fa-sign-out" aria-hidden="true"></i></Link></button>
                             ) : (
                                 <Link className="nav-link active" aria-current="page" to="/login">Iniciar Sesión</Link>
                             )}
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item" id='admin_li'>
                             {user && user.rol === "admin" ? (
-                                <Link className="nav-link active" aria-current="page" to="/admin">Administración</Link>
+                                <Link className="nav-link active" aria-current="page" id='administracion' to="/admin">Administración</Link>
                             ) : (
                                 <Link className="nav-link active" aria-current="page" to="/#"></Link>
                             )}

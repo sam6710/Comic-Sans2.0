@@ -3,6 +3,9 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
 }
+#admin h2{
+    font-family: 'Josefin Sans', sans-serif;
+}
 #añadirArticulo{
     grid-area: 1 / 1 / 4 / 5;
     margin-top: 5%;

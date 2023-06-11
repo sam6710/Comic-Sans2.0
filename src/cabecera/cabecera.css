@@ -3,7 +3,6 @@
     background-color: transparent;
 }
 #nav1{
-    /* width: 60%; */
     margin-left: 5%;
     display: flex;
     justify-content: flex-start;
@@ -45,6 +44,39 @@ nav{
     font-size: calc(0.4em + 0.6vw);
 }
 
-/* #carrito > path{
-    padding: 0;
-} */
+@media screen and (max-width: 576px){
+    nav{
+        font-size: calc(0.6em + 0.8vw);
+    }
+    #nav1{
+        width: 100%;
+        margin-left: 0;
+    }
+    #nav1 input{
+        width: 40%;
+        text-align: center;
+        margin-left: 0;
+    }
+    #nav2{
+        width: 80%;
+        margin-left: 10%;
+
+    }
+    #cerrarS{
+        margin-left: 20%;
+        margin-bottom: -4.2rem;
+    }
+    #carrito_container{
+        width: 20%;
+        margin-left: 70%;
+        margin-top: -2.7rem;
+    }
+    #carritoIcon{
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    #admin_li{
+        width: 20%;
+        margin-left: 40%;
+    }
+}

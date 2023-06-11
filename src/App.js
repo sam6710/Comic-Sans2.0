@@ -26,8 +26,6 @@ function App() {
   const [carrito, setCarrito] = useState([]);
   const [initializing, setInitializing] = useState(true);
 
-  console.log("carrito", carrito);
-
   async function getRol(uid){
     const docRef = doc(db, "users", uid);
     const docSnap = await getDoc(docRef);
@@ -65,9 +63,11 @@ function App() {
     return () => unsubscribe();
   }, [user, initializing]);
 
+  // Cierre de sesión
   const handleLogout = () => {
     signOut(auth)
     .then(() => {
+      setCarrito([]);
       console.log("Cerrando sesión");
     }
     ).catch((error) => {
@@ -87,8 +87,18 @@ function App() {
         <Cabecera user={user} handleLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Landing />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
+          {user && (
+            <Route path="/login" element={<Navigate to="/" />} />
+          )}
+          {!user && (
+            <Route path="/login" element={<Login />} />
+          )}
+          {user && (
+            <Route path="/register" element={<Navigate to="/" />} />
+          )}
+          {!user && (
+            <Route path="/register" element={<Register />} />
+          )}
           {isAdmin && (
             <Route path="/admin" element={<Admin />} />
           )}
@@ -97,8 +107,18 @@ function App() {
           )}
           <Route path="/galeria" element={<Galeria />}></Route>
           <Route path="/detalle" element={<Detalle user={user} agregarAlCarrito={agregarAlCarrito} carrito={carrito} setCarrito={setCarrito}/>}/>
-          <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito} user={user}/>} />
-          <Route path="/compra" element={<Compra />} />
+          {user && (
+            <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito} user={user}/>} />
+          )}
+          {!user && (
+            <Route path="/carrito" element={<Navigate to="/" />} />
+          )}
+          {user && (
+            <Route path="/compra" element={<Compra user={user} />} />
+          )}
+          {!user && (
+            <Route path="/compra" element={<Navigate to="/" />} />
+          )}
           <Route path="/recuperar" element={<Recuperar />}></Route>
           <Route path="*" element={<h1>404</h1>}></Route>
         </Routes>

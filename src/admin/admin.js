@@ -24,7 +24,6 @@ function Admin(){
         uploadBytes(storageRef, imagen).then((snapshot) => {
             console.log('Uploaded a blob or file!');
             getDownloadURL(storageRef).then((url) => {
-                console.log(url);
                 crearProducto(url);
             }).catch((error) => {
                console.log("Error al obtener la URL", error);

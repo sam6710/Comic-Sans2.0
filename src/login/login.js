@@ -19,9 +19,8 @@ function Login(){
 
             signInWithEmailAndPassword(auth, email, password);
             setLogeado(true);
-            console.log(logeado);
             document.getElementById('email').value = '';
-            document.getElementById('password').value = '';
+            document.getElementById('password').value = '';           
         }
         else{
             console.log("Error");
@@ -61,11 +60,11 @@ function Login(){
                 <h2 className="text-center mb-4 text-dark">Formulario Inicio Sesión</h2>
                 <form onSubmit={submitL}>
                     <div className="mb-3">
-                        <label for="exampleInputEmail1" className="form-label">Correo</label>
+                        <label htmlFor="exampleInputEmail1" className="form-label">Correo</label>
                         <input type="email" className="form-control border border-dark" id="email" aria-describedby="emailHelp" required/>
                     </div>
                     <div className="mb-3">
-                        <label for="exampleInputPassword1" className="form-label">Contraseña</label>
+                        <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
                         <input type="password" className="form-control border border-dark" id="password" minLength={6} required/>
                     </div>
                     <div className="d-grid">

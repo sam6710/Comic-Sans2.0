@@ -18,7 +18,6 @@ function Buscador() {
   
     const handleSearch = (event) => {
       if (event.key === 'Enter') {
-        console.log(searchValue);
         fetchBusqueda(searchValue);
       }
     };
@@ -36,14 +35,11 @@ function Buscador() {
 
             const results = [];
                 snapshotTitulo.forEach((doc) => {
-                console.log('Documento encontrado (título):', doc.id, doc.data());
                 results.push(doc.data());
             });
                 snapshotAutor.forEach((doc) => {
-                console.log('Documento encontrado (autor):', doc.id, doc.data());
                 results.push(doc.data());
             });
-            console.log("Awakate", results);
 
             const encodedParam = encodeURIComponent(JSON.stringify(results));
 

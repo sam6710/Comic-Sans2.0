@@ -59,9 +59,9 @@ function Carrito({ carrito, setCarrito, user }) {
             <thead>
               <tr id='tr_principal'>
                 <th id='th_articulo'>Artículo</th>
-                <th>Cantidad</th>
-                <th>Precio/Unidad</th>
-                <th>Precio</th>
+                <th id='th_cantidad'>Cantidad</th>
+                <th id='th_precio-u'>Precio/Unidad</th>
+                <th id='th_precio'>Precio</th>
               </tr>
             </thead>
             <tbody>
@@ -72,14 +72,14 @@ function Carrito({ carrito, setCarrito, user }) {
                       <img src={articulo.imagen} alt="Imagen del artículo" />
                     </div>
                     <div id='datos1'>
-                      <p>Título: {articulo.titulo}</p>
-                      <p>Editorial: {articulo.editorial}</p>
-                      <p>Autor: {articulo.autor}</p>
+                      <p id='p_titulo'>Título: {articulo.titulo}</p>
+                      <p id='p_editorial'>Editorial: {articulo.editorial}</p>
+                      <p id='p_autor'>Autor: {articulo.autor}</p>
                     </div>
                   </td>
-                  <td>{articulo.cantidad}<button id="eliminar" onClick={() => eliminarArticulo(articulo.titulo)}>Eliminar</button></td>
-                  <td>{articulo.precio}€</td>
-                  <td>{(parseFloat(articulo.precio.replace(',' , '.')) * articulo.cantidad).toFixed(2)}€</td>
+                  <td id='td_cantidad'>{articulo.cantidad}<button id="eliminar" onClick={() => eliminarArticulo(articulo.titulo)}>Eliminar</button></td>
+                  <td id='td_precio-u'>{articulo.precio}€</td>
+                  <td id='td_precio'>{(parseFloat(articulo.precio.replace(',' , '.')) * articulo.cantidad).toFixed(2)}€</td>
                 </tr>
               ))}
             </tbody>

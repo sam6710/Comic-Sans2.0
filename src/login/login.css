@@ -4,3 +4,14 @@
 #div_login h2{
     font-family: 'Josefin Sans', sans-serif;
 }
+@media screen and (max-width: 576px){
+    #div_login{
+        margin-top: calc(20% - 1rem);
+        display: flex;
+        flex-direction: column;
+    }
+    #register_google{
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}

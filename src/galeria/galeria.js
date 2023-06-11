@@ -46,12 +46,10 @@ function Galeria() {
             const editorial = url.searchParams.get('editorial');
 
             if (tipo) {
-              console.log("tipo", tipo);
               querySnapshot = await getDocs(
                 query(collection(db, 'articulos'), where('tipo', '==', tipo))
               );
             } else if (genero) {
-              console.log("genero", genero);
               querySnapshot = await getDocs(
                 query(collection(db, 'articulos'), where('genero', '==', genero))
               );
@@ -59,11 +57,9 @@ function Galeria() {
                 query(collection(db, 'articulos'), where('genero2', '==', genero))
               );
             } else if (editorial) {
-              console.log("editorial", editorial);
               querySnapshot = await getDocs(
                 query(collection(db, 'articulos'), where('editorial', '==', editorial))
               );
-              console.log("querySnapshot", querySnapshot);
             } else {
               querySnapshot = await getDocs(collection(db, 'articulos'));
             }
@@ -72,7 +68,6 @@ function Galeria() {
               id: doc.id,
               ...doc.data(),
             }));
-            console.log("articlesData", articlesData);
 
             if(querySnapshot2){
               const articlesData2 = querySnapshot2.docs.map((doc) => ({
