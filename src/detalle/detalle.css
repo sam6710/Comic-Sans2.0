@@ -36,7 +36,9 @@
     margin-top: 1rem;
 }
 #imagen img{
-    height: 60%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 #form_actu{
     display: grid;

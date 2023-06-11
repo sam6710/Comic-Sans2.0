@@ -4,6 +4,8 @@ import firebaseApp from '../firebase_config';
 import Articulo from '../articulo/articulo';
 import './novedades.css';
 
+// Componente Novedades
+
 function Novedades(){
 
     const [novedades, setNovedades] = useState([]);
@@ -28,8 +30,6 @@ function Novedades(){
         fetchNovedades();
       }, []);
   
-    // Resto del código...
-  
     return (
         <div id='novedades'>
             <h2>Novedades</h2>
@@ -40,9 +40,6 @@ function Novedades(){
                 {novedades.map((novedad) => (
                     <li key={novedad.id}>
                         <Articulo id='art' articulo = {novedad}/>
-                        {/* <h3>{novedad.titulo}</h3> */}
-                        {/* <p>{novedad.fecha}</p> */}
-                        {/* Aquí puedes agregar más detalles de la novedad */}
                     </li>
                 ))}
             </ul>

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './carrusel.css';
 
+// Componente Carrusel
+
 function Carrusel() {
   const TIEMPO_INTERVALO_MILESIMAS_SEG = 4000;
 
+  // Imágenes del carrusel
   const IMAGENES = [
     "./imagenes/comic.jpg",
     "./imagenes/marvel.jpg",
@@ -14,26 +17,11 @@ function Carrusel() {
     "./imagenes/panda.jpg",
   ];
 
-  // let posicionActual = 0;
-  // let intervaloRef = useRef(null);
   const [posicionActual, setPosicionActual] = useState(0);
 
-  // const pasarFoto = () => {
-  //   if (posicionActual >= IMAGENES.length - 1) {
-  //     posicionActual = 0;
-  //   } else {
-  //     posicionActual++;
-  //   }
-  //   renderizarImagen();
-  // };
   const pasarFoto = () => {
     setPosicionActual((prevPosicion) => (prevPosicion + 1) % IMAGENES.length);
   };
-
-  // const renderizarImagen = () => {
-  //   const img_carrusel = document.getElementById("imagen_carrusel");
-  //   img_carrusel.src = IMAGENES[posicionActual];
-  // };
 
   useEffect(() => {
     const intervalo = setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
@@ -43,20 +31,7 @@ function Carrusel() {
     };
   }, []);
 
-  // const playIntervalo = () => {
-  //   setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
-  // };
-
-  // useEffect(() => {
-  //   playIntervalo();
-  // }, []);
-
   return (
-    // <section id="carrusel">
-    //   <div id="img_carrusel">
-    //     <img src="./imagenes/norma.jpg" alt="imagen_carrusel" id="imagen_carrusel" />
-    //   </div>
-    // </section>
     <section id="carrusel">
       <div id="img_carrusel">
         <img src={IMAGENES[posicionActual]} alt="imagen_carrusel" id="imagen_carrusel" />

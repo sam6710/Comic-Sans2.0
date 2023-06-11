@@ -5,6 +5,8 @@ import "./login.css";
 
 const auth = getAuth(firebaseApp);
 
+// Componente Login
+
 function Login(){
 
     const [logeado, setLogeado] = useState(false);
@@ -18,6 +20,8 @@ function Login(){
             signInWithEmailAndPassword(auth, email, password);
             setLogeado(true);
             console.log(logeado);
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
         }
         else{
             console.log("Error");
@@ -26,12 +30,7 @@ function Login(){
 
     function submitL2 (e){
         e.preventDefault();
-        if(validarFormulario2()){
-            registerWithGoogle();
-        }
-        else{
-            console.log("Error");
-        }
+        registerWithGoogle();
     }
 
     async function registerWithGoogle(){
@@ -56,31 +55,28 @@ function Login(){
         }
     }
 
-    function validarFormulario2(){
-        return true;
-    }
-
-
     return(
-        <div className="vh-100 d-flex justify-content-center align-items-center">
+        <div id='div_login' className="vh-100 d-flex justify-content-center align-items-center">
             <div className="col-md-4 p-5 shadow-sm border rounded-3">
                 <h2 className="text-center mb-4 text-dark">Formulario Inicio Sesión</h2>
                 <form onSubmit={submitL}>
                     <div className="mb-3">
                         <label for="exampleInputEmail1" className="form-label">Correo</label>
-                        <input type="email" className="form-control border border-dark" id="email" aria-describedby="emailHelp"/>
+                        <input type="email" className="form-control border border-dark" id="email" aria-describedby="emailHelp" required/>
                     </div>
                     <div className="mb-3">
                         <label for="exampleInputPassword1" className="form-label">Contraseña</label>
-                        <input type="password" className="form-control border border-dark" id="password"/>
+                        <input type="password" className="form-control border border-dark" id="password" minLength={6} required/>
                     </div>
-                    {/* <p cla ssName="small"><a className="text-dark" href="forget-password.html">Forgot password?</a></p> */}
                     <div className="d-grid">
                         <button className="btn btn-dark" type="submit">Iniciar Sesión</button>
                     </div>
                 </form>
                 <div className="mt-3">
                     <p className="mb-0 text-center">¿No tienes una cuenta?<a href="/register" className="text-dark fw-bold">Registrarse</a></p>
+                </div>
+                <div className="mt-3">
+                    <p className="mb-0 text-center">¿Ha olvidado su contraseña?<a href="/recuperar" className="text-dark fw-bold">Recuperar</a></p>
                 </div>
             </div>
             <div id="register_google" className="col-md-4 p-5 shadow-sm border rounded-3">

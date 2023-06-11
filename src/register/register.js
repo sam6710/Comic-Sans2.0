@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import firebaseApp from '../firebase_config.js';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import './register.css';
 
 const auth = getAuth(firebaseApp);
 
+// Componente Register
+
 function Register(){
+
     const db = getFirestore(firebaseApp);
+
+    const [errorVisible, seterrorVisible] = useState(false);
+    const [error, setError] = useState("");
 
     function submitR (e){
         e.preventDefault();
-        if(validarFormulario()){
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        if(validarFormulario(email, password)){
+            
             if(email == "samgope100@gmail.com"){
                 var rol = "admin";
             }
@@ -31,12 +38,12 @@ function Register(){
 
     function submitR2 (e){
         e.preventDefault();
-        if(validarFormulario()){
+        // if(validarFormulario()){
             registerWithGoogle();
-        }
-        else{
-            console.log("Error");
-        }
+        // }
+        // else{
+        //     console.log("Error");
+        // }
     }
 
     async function registerEmailPassword(email, password, rol){
@@ -66,8 +73,25 @@ function Register(){
         setDoc(docuREef, {correo: email, rol: rol});
     }
 
-    function validarFormulario(){
-        return true;
+    function validarFormulario(email, password){    
+        var hasLetter = /[a-zA-Z]/.test(password);
+        var hasNumber = /[0-9]/.test(password);
+        var hasDotAndLetters = /\.[a-zA-Z]+/.test(email);
+        if(!hasDotAndLetters){
+            setError("El correo debe acabar en '.com'/'.es'....");
+            seterrorVisible(true);
+        }
+        else if(!hasLetter || !hasNumber){
+            setError("La contraseña debe tener al menos una letra, un número y una longitud mínima de 6 caracteres");
+            seterrorVisible(true);
+        }
+        else{
+            seterrorVisible(false);
+            document.getElementById('name').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('password').value = "";
+            return true;
+        }
     }
 
     return(
@@ -78,21 +102,21 @@ function Register(){
                     <form onSubmit={submitR}>
                         <div className="mb-3">
                             <label className="form-label">Nombre</label>
-                            {/* <!-- <input type="text" className="form-control border border-dark" [(ngModel)]="name" [ngModelOptions]="{standalone:true}"> --> */}
                             <input type="text" id="name" className="form-control border border-dark"/>
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Correo</label>
-                            {/* <!-- <input type="email" className="form-control border border-dark" aria-describedby="emailHelp" [(ngModel)]="email" [ngModelOptions]="{standalone:true}"> --> */}
                             <input type="email" id="email" className="form-control border border-dark" aria-describedby="emailHelp"/>
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Contraseña</label>
-                            {/* <!-- <input type="password" className="form-control border border-dark" [(ngModel)]="password" [ngModelOptions]="{standalone:true}"> --> */}
-                            <input type="password" id="password" className="form-control border border-dark"/>
+                            <input type="password" minLength={6} id="password" className="form-control border border-dark"/>
                         </div>
                         <div className="d-grid">
                             <button className="btn btn-dark" type="submit">Registro</button>
+                        </div>
+                        <div id='error' style={{ display: errorVisible ? 'block' : 'none' }}>
+                            <p className="text-danger">{error}</p>
                         </div>
                     </form>
                 </div>

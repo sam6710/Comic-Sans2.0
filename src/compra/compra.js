@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './compra.css';
 import DatePicker from "react-datepicker";
-import 'react-datepicker/dist/react-datepicker.css';
+import 'react-datepicker/dist/react-datepicker.css'
+
+// Componente Compra
 
 function Compra() {
     
@@ -12,14 +14,14 @@ function Compra() {
     };
 
     const handleKeyPress = (event) => {
-        const keyCode = event.keyCode || event.which;
-        const keyValue = String.fromCharCode(keyCode);
-        const numericRegex = /^[0-9]*$/; // Expresión regular para solo permitir números
-    
-        if (!numericRegex.test(keyValue)) {
-          event.preventDefault();
+    const keyCode = event.keyCode || event.which;
+    const keyValue = String.fromCharCode(keyCode);
+    const numericRegex = /^[0-9]*$/; // Expresión regular para solo permitir números
+
+    if (!numericRegex.test(keyValue)) {
+            event.preventDefault();
         }
-      };
+    };
 
     return (
         <div id='divCompra'>

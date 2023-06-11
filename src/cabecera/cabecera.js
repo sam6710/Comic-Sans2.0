@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Buscador from '../buscador/buscador';
 
+// Componente Cabecera
+
 function Cabecera({user, handleLogout}) {
 
     return(

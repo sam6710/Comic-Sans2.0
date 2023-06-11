@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './articulo.css';
 
+// Componente Artículo
+
 function Articulo({ articulo }) {
 
     // console.log(articulo);

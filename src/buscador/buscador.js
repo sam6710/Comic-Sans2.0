@@ -1,8 +1,10 @@
 import React,  { useState } from 'react';
 import './buscador.css';
-import { getFirestore, collection, query, getDocs, where, or } from 'firebase/firestore';
+import { getFirestore, collection, query, getDocs, where } from 'firebase/firestore';
 import firebaseApp from '../firebase_config';
 import { useNavigate  } from 'react-router-dom';
+
+// Componente Buscador
 
 function Buscador() {
 
@@ -16,13 +18,12 @@ function Buscador() {
   
     const handleSearch = (event) => {
       if (event.key === 'Enter') {
-        // Aquí puedes realizar la lógica de búsqueda utilizando el valor de "searchValue"
         console.log(searchValue);
         fetchBusqueda(searchValue);
-        // navigate('/galeria?busqueda=${searchValue}');
       }
     };
 
+    // Busqueda en la base de datos con el valor del Buscador
     const fetchBusqueda = async (search) => {
         try {
             const db = getFirestore(firebaseApp);

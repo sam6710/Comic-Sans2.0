@@ -8,6 +8,8 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 Modal.setAppElement('#root');
 
+// Componente Dettalle
+
 function Detalle({ user, carrito, setCarrito }) {
 
     const url = new URL(window.location.href);
@@ -62,18 +64,27 @@ function Detalle({ user, carrito, setCarrito }) {
       }
     }, [modalIsOpen, modalIsOpen2]);
 
-    const borrarArticulo = async () => {
-      openModal();
-    };
-
+    // Abrir y cerrar los Modal de actualizar y eliminar
     const openModal = () => {
       setModalIsOpen(true);
     };
-  
     const closeModal = () => {
       setModalIsOpen(false);
     };
+    const openModal2 = () => {
+      setModalIsOpen2(true);
+    };
+    const closeModal2 = () => {
+      setModalIsOpen2(false);
+    };
+    const borrarArticulo = async () => {
+      openModal();
+    };
+    const actualizarArticulo = () => {
+      openModal2();
+    };
 
+    // Confirmar el borrado de un artículo
     const confirmarBorrado = async () => {
       try {
         const db = getFirestore(firebaseApp);
@@ -89,21 +100,9 @@ function Detalle({ user, carrito, setCarrito }) {
       setCarrito([...carrito, articulo]);
       setAgregadoVisible(true);
 
-    setTimeout(() => {
-      setAgregadoVisible(false);
-    }, 2000);
-    };
-
-    const actualizarArticulo = () => {
-      openModal2();
-    };
-
-    const openModal2 = () => {
-      setModalIsOpen2(true);
-    };
-
-    const closeModal2 = () => {
-      setModalIsOpen2(false);
+      setTimeout(() => {
+        setAgregadoVisible(false);
+      }, 2000);
     };
 
     const actualizar = async () => {
@@ -140,6 +139,7 @@ function Detalle({ user, carrito, setCarrito }) {
       closeModal2();
     };
 
+    // Función para poner en mayúscula la primera letra de una palabra
     const capitalizeFirstLetter = (string) => {
       return string.charAt(0).toUpperCase() + string.substring(1);
     };

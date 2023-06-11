@@ -10,6 +10,7 @@ import Galeria from "./galeria/galeria";
 import Detalle from './detalle/detalle';
 import Carrito from './carrito/carrito';
 import Compra from './compra/compra';
+import Recuperar from './recuperar/recuperar';
 import firebaseApp from './firebase_config.js';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from 'react';
@@ -98,6 +99,7 @@ function App() {
           <Route path="/detalle" element={<Detalle user={user} agregarAlCarrito={agregarAlCarrito} carrito={carrito} setCarrito={setCarrito}/>}/>
           <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito} user={user}/>} />
           <Route path="/compra" element={<Compra />} />
+          <Route path="/recuperar" element={<Recuperar />}></Route>
           <Route path="*" element={<h1>404</h1>}></Route>
         </Routes>
         <Pie/>

@@ -5,6 +5,8 @@ import Articulo from '../articulo/articulo';
 import './galeria.css';
 import { useLocation } from 'react-router-dom';
 
+// Componente Galería
+
 function Galeria() {
 
     const [articles, setArticles] = useState([]);

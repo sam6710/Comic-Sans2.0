@@ -2,9 +2,9 @@ import React from 'react';
 import './carrito.css'
 import { useNavigate  } from 'react-router-dom';
 
-function Carrito({ carrito, setCarrito, user }) {
+// Componente Carrito
 
-  console.log("carrito", carrito);
+function Carrito({ carrito, setCarrito, user }) {
 
     const vaciarCarrito = () => {
       setCarrito([]);
@@ -37,6 +37,7 @@ function Carrito({ carrito, setCarrito, user }) {
       }
     };
 
+    // Calculo total del pedido
     const totalPedido = carrito.reduce((total, articulo) => {
       const precio = parseFloat(articulo.precio.replace(',', '.'));
       const cantidad = articulo.cantidad || 1;

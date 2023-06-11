@@ -4,6 +4,8 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getFirestore, doc, setDoc, getDocs, collection } from 'firebase/firestore';
 import './admin.css';
 
+// Componente Admin
+
 function Admin(){
     
     const storage = getStorage();
@@ -11,6 +13,7 @@ function Admin(){
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState('');
 
+    // Función para subir imagen a Storage de Firebase y vincularla a un producto en Firestore
     function subirImagen(e){
         e.preventDefault();
 
@@ -29,6 +32,7 @@ function Admin(){
         });
     }
 
+    // Función que crea un producto en Firestore
     function crearProducto(url){
 
         const tipo = document.getElementById('tipo').value;
@@ -40,7 +44,6 @@ function Admin(){
         const genero2 = document.getElementById('genero2').value;
         const precio = document.getElementById('precio').value;
         const fechaActual = new Date();
-        // const id = "S" + titulo + "A" + fechaActual.getTime() + "M";
 
         const producto = {
             tipo: tipo,
@@ -53,7 +56,6 @@ function Admin(){
             precio: precio,
             imagen: url,
             fecha: fechaActual,
-            // id: id
         }
 
         const docuREef = doc(db, "articulos", titulo);
@@ -101,7 +103,7 @@ function Admin(){
 
     const convertTouser = () => {
         if (selectedUser) {
-            // Actualizar el usuario seleccionado en la base de datos para convertirlo en administrador
+            // Actualizar el usuario seleccionado en la base de datos para convertirlo en usuario normal
             const userRef = doc(db, 'users', selectedUser);
             setDoc(userRef, { rol: 'user' }, { merge: true });
         }

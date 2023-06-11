@@ -1,9 +1,9 @@
 import React from 'react';
 import './pie.css';
 
-function Pie(){
+// Componente Pie
 
-    
+function Pie(){
 
     return(
         <footer className="text-center text-lg-start bg-light text-muted">
