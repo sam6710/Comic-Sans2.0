@@ -197,20 +197,22 @@
         margin-top: -25rem;
     }
 }
-/* #form_actu{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    margin-top: 3rem;
+@media screen and (max-width: 480px){
+    #detalle{
+        display: flex;
+        flex-direction: column;
+        /* text-align: center; */
+    }
+    #info{
+        margin-top: -2rem;
+    }
+    #agregar{
+        margin-bottom: calc(9% - 1rem);
+    }
+    #actualizar{
+        margin-bottom: calc(9% - 1rem);
+    }
+    #detalle{
+        margin-bottom: 40rem;
+    }
 }
-#form_actu input{
-    margin-bottom: 1rem;
-    margin-left: 0.2rem;
-}
-#form_actu select{
-    margin-bottom: 1rem;
-    margin-left: 0.2rem;
-}
-#form_actu button{
-    margin-top: 1rem;
-} */

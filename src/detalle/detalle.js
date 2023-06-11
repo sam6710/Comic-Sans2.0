@@ -166,21 +166,21 @@ function Detalle({ user, carrito, setCarrito }) {
                 </div>
             </div>
             <div id='acciones'>
-                <h4 id='precioH4'>{articulo.precio}€</h4>
-                <button id='agregar' className="btn btn-dark" onClick={() => agregarAlCarritoo(articulo)}>Agregar al carrito</button>
-                {user && user.rol === "admin" && (
-                    <button id='actualizar' className="btn btn-dark" onClick={actualizarArticulo}>Actualizar</button>
+              <h4 id='precioH4'>{articulo.precio}€</h4>
+              <button id='agregar' className="btn btn-dark" onClick={() => agregarAlCarritoo(articulo)}>Agregar al carrito</button>
+              {user && user.rol === "admin" && (
+                  <button id='actualizar' className="btn btn-dark" onClick={actualizarArticulo}>Actualizar</button>
+              )}
+              {user && user.rol === "admin" && (
+                  <button id='borrar' className="btn btn-dark" onClick={borrarArticulo}>Borrar</button>
+              )}
+              <div id='añadido' style={{ display: agregadoVisible ? 'block' : 'none' }}>
+                {user ? (
+                  <p>Artículo añadido al carrito</p>
+                ) : (
+                  <p id='inicioRequired'>Debes iniciar sesión para esta acción</p>
                 )}
-                {user && user.rol === "admin" && (
-                    <button id='borrar' className="btn btn-dark" onClick={borrarArticulo}>Borrar</button>
-                )}
-                <div id='añadido' style={{ display: agregadoVisible ? 'block' : 'none' }}>
-                  {user ? (
-                    <p>Artículo añadido al carrito</p>
-                  ) : (
-                    <p id='inicioRequired'>Debes iniciar sesión para esta acción</p>
-                  )}
-                </div>
+              </div>
             </div>
             <Modal id='borrarModal' isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Confirmar Borrado">
               <h2>Confirmar Borrado</h2>

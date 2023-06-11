@@ -98,3 +98,42 @@
         padding-right: 1rem;
     }
 }
+@media screen and (max-width: 480px){
+    /* #carrito table{
+        margin-left: 0;
+        margin-right: 50%;
+    } */
+    #carrito #datos1{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-left: 0rem;
+    }
+    #th_articulo{
+        text-align: center;
+        padding-right: 2rem;
+        padding-left: 7rem;
+        width: 15%;
+    }
+    #td_articulo{
+        padding-left: 0rem;
+        width: 100%;
+    }
+    #p_titulo{
+        width: 80%;
+        margin-right: 10%;
+    }
+    #p_editorial{
+        display: none;
+    }
+    #p_autor{
+        display: none;
+    }
+    #th_cantidad{
+        padding-right: 1rem;
+    }
+    #th_precio-u{
+        padding-right: 1rem;
+    }
+}
